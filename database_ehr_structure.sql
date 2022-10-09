@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2022 at 03:53 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Oct 09, 2022 at 09:45 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,6 +48,15 @@ CREATE TABLE `project` (
   `PROJ_NAME` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`PROJ_ID`, `PROJ_NAME`) VALUES
+('PRJ01', 'Project1'),
+('PRJ02', 'Project2'),
+('PRJ03', 'Project3');
+
 -- --------------------------------------------------------
 
 --
@@ -69,11 +78,17 @@ CREATE TABLE `staff` (
   `STAFF_ID` varchar(5) NOT NULL,
   `S_FNAME` varchar(20) NOT NULL,
   `S_LNAME` varchar(20) NOT NULL,
-  `DOB` date NOT NULL,
-  `LEAD_ID` varchar(5) NOT NULL,
-  `TEAM_ID` varchar(5) NOT NULL,
-  `PROJ_ID` varchar(5) NOT NULL
+  `DOB` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`STAFF_ID`, `S_FNAME`, `S_LNAME`, `DOB`) VALUES
+('STF01', 'Chusana', 'Wilaivanichwong', '2001-07-28'),
+('STF02', 'Bussakorn', 'Palatorn', '2000-10-26'),
+('STF03', 'Kantaphong', 'Pitinorasate', '2012-10-27');
 
 -- --------------------------------------------------------
 
@@ -110,6 +125,18 @@ CREATE TABLE `team` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `team`
+--
+
+INSERT INTO `team` (`TEAM_ID`, `TEAM_NAME`, `PROJ_ID`) VALUES
+('DEV01', 'Developer Team1', 'PRJ01'),
+('DEV02', 'Developer Team2', 'PRJ02'),
+('FNC01', 'Functional Interface', 'PRJ01'),
+('FNC02', 'Functional Workflow', 'PRJ02'),
+('MID01', 'Middleware Team1', 'PRJ01'),
+('MID02', 'Middleware Team2', 'PRJ02');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -140,9 +167,7 @@ ALTER TABLE `sl`
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
-  ADD PRIMARY KEY (`STAFF_ID`),
-  ADD KEY `TEAM_ID` (`TEAM_ID`),
-  ADD KEY `LEAD_ID` (`LEAD_ID`);
+  ADD PRIMARY KEY (`STAFF_ID`);
 
 --
 -- Indexes for table `status`
