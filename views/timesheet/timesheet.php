@@ -1,4 +1,7 @@
 <style>
+body{
+    font-family : 'Segoe UI Semibold' ;
+}
 .navbar {
     position: fixed ;
     top: 0;
@@ -8,11 +11,9 @@
     background: #BED2E5;
     z-index: 0;
 }
-
 .navbar a{
     position: absolute;
     top : 30% ;
-    font-family : 'Segoe UI Semibold' ;
     font-size : 18px;
     color : #477295 ; 
 }
@@ -25,7 +26,6 @@
     top : 30%;
     right: 1%;
 }
-
 .navbar li{
     display : inline-block ;
     margin-right : 25px ;
@@ -47,10 +47,18 @@
     
 }
 .appname a {
-    align : center ;
+    position: absolute;
+    left: 50%;
+    top: 50%; 
+    transform: translate(-50%, -50%);
+
+    font-size : 30px;
+    color : #477295 ; 
 }
 
 .filbar {
+    display : flex ;
+    justify-content :space-evenly ;
     position: fixed ;
     top: 16%;
     width: 100%;
@@ -62,25 +70,60 @@
     border-width: 1px;
     border-color : #545454 ;
 }
-.filbar ul{
-    list-style: none;
-    padding : 0 ;
-    margin : 0 ;
-    position: absolute;
-    top : 0;
-}
-.filbar li{
-    display : inline-block ;
-}
-.filbar li .fuser{
-    position: absolute;
-    top : 0;
+.filbar .user{
     width: 33.33%;
-    background: #FFFFFF;
-    border-style : solid ;
-    border-width: 1px;
-    border-color : #545454 ;
+    display : flex ;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    border-color: #545454;
 }
+.filbar .user .ublock{
+    display : flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.filbar .user .icon{
+    margin: 5 25 0 25;
+}
+.filbar .user .info{
+    display : flex;
+    flex-direction: column;
+}
+.filbar .user .name{
+    font-size : 20px;
+    color : #477295 ; 
+}
+.filbar .user .pos{
+    font-family : 'Segoe UI Semibold' ;
+    font-size : 15px;
+    color : #477295 ; 
+}
+.filbar .project{
+    width: 33.33%;
+    display : flex ;
+    justify-content: space-evenly;
+    font-size : 20px;
+    color : #477295 ; 
+}
+.filbar .project .pblock{
+    display : flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.filbar .team{
+    width: 33.33%;
+    display : flex ;
+    justify-content: space-evenly;
+}
+.filbar .team .tblock{
+    display : flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 
 </style>
 <html>
@@ -101,13 +144,37 @@
         <a>Timesheet</a>
     </div>
     <div class = "filbar">
-        <ul>
-        <li><div class = "fuser">
-            <img src="user.png" height ="25" width="25" />
-        </div></li>
-        <li><div class = "fpoject"> </div></li>
-        <li><div class = "fteam"> </div></li>
-        </ul>
+        <div class = "user">
+            <div class = "ublock">
+            <div class = "icon"><img src="user.png" height ="32" width="32" /></div>
+            <div class = "info">
+                <div class="name">
+                <a>Bussakorn Palatorn</a><br>
+                </div>
+            <div class="pos" >
+                <a>Functional</a>
+            </div></div></div>
+        </div>
+        <div class = "project">
+            <div class ="pblock">
+                <div class="ptitle">
+                <a>Project : </a>
+                </div>
+                <div class="pproject">
+                <a> Derndao BTH</a>
+                </div>
+            </div>
+        </div>
+        <div class = "team"> 
+            <div class ="tblock">
+                <div class="ttitle">
+                <a>Team : </a>
+                </div>
+                <div class="tteam">
+                <a> Functional</a>
+                </div>
+            </div>
+        </div>
     </div>
 
    
