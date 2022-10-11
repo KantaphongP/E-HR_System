@@ -102,8 +102,8 @@ body{
     width: 33.33%;
     display : flex ;
     justify-content: space-evenly;
-    font-size : 20px;
-    color : #477295 ; 
+    font-size: 22px;
+    color: #477295;
 }
 .filbar .project .pblock{
     display : flex;
@@ -115,6 +115,8 @@ body{
     width: 33.33%;
     display : flex ;
     justify-content: space-evenly;
+    font-size: 22px;
+    color: #477295;
 }
 .filbar .team .tblock{
     display : flex;
@@ -138,6 +140,8 @@ body{
 .calendar .cal .month{
     display : flex ;
     justify-content: space-evenly;
+    font-size: 22px;
+    color: #477295;
 }
 .calendar .cal .month button{
     border : none ;
@@ -173,7 +177,6 @@ tr:nth-child(even) {
 }
 .sum {
     display : flex;
-    position: fixed;
     bottom: 2%;
     width: 80%;
     height: 15%;
@@ -188,21 +191,31 @@ tr:nth-child(even) {
 .total {
     width : 45%;
     display : flex ;
+    justify-content: center ;
     border-style: solid;
     border-width: 0 1px 0 0;
     border-color: #545454;
+}
+.total .tt {
+    position: relative ;
+    display: grid;
 }
 .status {
     width : 35%;
     display : flex;
+    justify-content: center ;
     border-style: solid;
     border-width: 0 1px 0 0;
     border-color: #545454;
 }
+.status .tt{
+    position: relative ;
+    display: grid;
+}
 .submit {
     width : 20%;
     display : flex ; 
-    
+    justify-content: center;
 }
 </style>
 <html>
@@ -225,14 +238,16 @@ tr:nth-child(even) {
     <div class = "filbar">
         <div class = "user">
             <div class = "ublock">
-            <div class = "icon"><img src="user.png" height ="32" width="32" /></div>
-            <div class = "info">
-                <div class="name">
-                <a>Bussakorn Palatorn</a><br>
+                <div class = "icon"><img src="user.png" height ="32" width="32" /></div>
+                <div class = "info">
+                    <div class="name">
+                        <?php echo "Bussakorn Palatorn" ?>
+                    </div>
+                    <div class="pos" >
+                        <?php echo "Functional" ?>
+                    </div>
                 </div>
-            <div class="pos" >
-                <a>Functional</a>
-            </div></div></div>
+            </div>
         </div>
         <div class = "project">
             <div class ="pblock">
@@ -240,7 +255,7 @@ tr:nth-child(even) {
                 <a>Project : </a>
                 </div>
                 <div class="pproject">
-                <a> Derndao BTH</a>
+                <?php echo " Derndao BTH" ?>
                 </div>
             </div>
         </div>
@@ -250,7 +265,7 @@ tr:nth-child(even) {
                 <a>Team : </a>
                 </div>
                 <div class="tteam">
-                <a> Functional</a>
+                <?php echo "Functional" ?>
                 </div>
             </div>
         </div>
@@ -263,7 +278,7 @@ tr:nth-child(even) {
             <div class ="nex"><button class ="next"><img src="rightarrow.png" height ="25" width="25" /></button></div>
             </div>
             <div class ="func">
-                <a><a>
+                <a></a>
                 <button>Insert Log <img src="insert.png" height ="15" width="15" margin="0 0 0 1%"/></button>
             </div>
             <div class ="table" style="position: relative";>
@@ -281,12 +296,18 @@ tr:nth-child(even) {
         <div class="sum">
             <div class="total">
                 <div class ="tt">
-                    <a>Total Mandays : <a>
+                    <a>Total Mandays : </a>                
+                </div>
+                <div class ="summan">
+                <?php echo " 19" ?>
                 </div>
             </div>
             <div class="status">
                 <div class ="tt">
-                    <a>Status : <a>
+                    <a>Status : </a>
+                </div>
+                <div class ="appr">
+                    <?php echo " Approved" ?>
                 </div>
             </div>
             <div class="submit">
@@ -294,8 +315,10 @@ tr:nth-child(even) {
                     <button>submit</button>
                 </div>
             </div>
+            
         </div>
     </div>
+
     <script>
         const date = new Date();
         const renderCalendar = () => {
