@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2022 at 09:45 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Generation Time: Oct 11, 2022 at 10:43 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,12 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `log` (
   `TS_ID` varchar(13) NOT NULL,
-  `LDATE` date NOT NULL,
-  `MANDAYS` float NOT NULL,
-  `DOS` text NOT NULL,
   `STATUS_ID` int(11) NOT NULL,
   `STAFF_ID` varchar(5) NOT NULL,
   `LEAD_ID` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `log_detail`
+--
+
+CREATE TABLE `log_detail` (
+  `TS_ID` varchar(13) NOT NULL,
+  `LDATE` date NOT NULL,
+  `MANDAY` float NOT NULL,
+  `DOS` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -150,6 +160,13 @@ ALTER TABLE `log`
   ADD KEY `LEAD_ID` (`LEAD_ID`);
 
 --
+-- Indexes for table `log_detail`
+--
+ALTER TABLE `log_detail`
+  ADD PRIMARY KEY (`TS_ID`),
+  ADD KEY `TS_ID` (`TS_ID`);
+
+--
 -- Indexes for table `project`
 --
 ALTER TABLE `project`
@@ -201,6 +218,12 @@ ALTER TABLE `log`
   ADD CONSTRAINT `log_ibfk_1` FOREIGN KEY (`STATUS_ID`) REFERENCES `status` (`STATUS_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `log_ibfk_2` FOREIGN KEY (`LEAD_ID`) REFERENCES `sl` (`LEAD_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `log_ibfk_3` FOREIGN KEY (`STAFF_ID`) REFERENCES `sl` (`STAFF_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `log_detail`
+--
+ALTER TABLE `log_detail`
+  ADD CONSTRAINT `log_detail_ibfk_1` FOREIGN KEY (`TS_ID`) REFERENCES `log` (`TS_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `sl`
