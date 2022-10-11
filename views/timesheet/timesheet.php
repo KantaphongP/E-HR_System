@@ -138,7 +138,6 @@ body{
 .calendar .cal .month{
     display : flex ;
     justify-content: space-evenly;
-    margin: 2%;
 }
 .calendar .cal .month button{
     border : none ;
@@ -156,6 +155,13 @@ body{
     border : none ;
     background : transparent ; 
     cursor: pointer;
+}
+.month h1{
+    font-size : 30px;
+}
+.pre , .mon , .nex{
+    display : flex;
+    
 }
 table, th, td {
   border: 1px solid black;
@@ -252,11 +258,12 @@ tr:nth-child(even) {
     <div class ="calendar">
         <div class="cal">
             <div class ="month">
-            <div><button><img src="leftarrow.png" height ="25" width="25" /></button></div>
-            <div><a>October</a></div>
-            <div><button><img src="rightarrow.png" height ="25" width="25" /></button></div>
+            <div class ="pre"><button class ="prev"><img src="leftarrow.png" height ="25" width="25" /></button></div>
+            <div class ="mon"><h1></h1></div>
+            <div class ="nex"><button class ="next"><img src="rightarrow.png" height ="25" width="25" /></button></div>
             </div>
             <div class ="func">
+                <a><a>
                 <button>Insert Log <img src="insert.png" height ="15" width="15" margin="0 0 0 1%"/></button>
             </div>
             <div class ="table" style="position: relative";>
@@ -289,6 +296,40 @@ tr:nth-child(even) {
             </div>
         </div>
     </div>
+    <script>
+        const date = new Date();
+        const renderCalendar = () => {
+        const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+            ];
+        document.querySelector(".month h1").innerHTML = months[date.getMonth()];
+        }
+
+        document.querySelector(".func a").innerHTML = date.getMonth()+1 ; 
+
+        document.querySelector(".prev").addEventListener("click", () => {
+            date.setMonth(date.getMonth() - 1);
+            renderCalendar();
+        });
+
+        document.querySelector(".next").addEventListener("click", () => {
+        date.setMonth(date.getMonth() + 1);
+        renderCalendar();
+        });
+
+        renderCalendar();
+    </script>
     
     </body>
 </html>
