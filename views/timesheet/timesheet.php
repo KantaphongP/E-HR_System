@@ -55,7 +55,6 @@ body{
     font-size : 30px;
     color : #477295 ; 
 }
-
 .filbar {
     display : flex ;
     justify-content :space-evenly ;
@@ -123,8 +122,82 @@ body{
     top: 50%;
     transform: translateY(-50%);
 }
-
-
+.calendar {
+    position : fixed;
+    top : 24% ;
+    left: 0;
+    width: 100%;
+    height : 76% ;
+}
+.calendar .cal{
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.calendar .cal .month{
+    display : flex ;
+    justify-content: space-evenly;
+    margin: 2%;
+}
+.calendar .cal .month button{
+    border : none ;
+    background : transparent ; 
+    cursor: pointer;
+}
+.calendar .cal .func{
+    display : flex ;
+    justify-content: flex-end;
+    margin: 0 1% 0 0; 
+}
+.calendar .cal .func button{
+    font-size : 15px;
+    color : #2E5575 ; 
+    border : none ;
+    background : transparent ; 
+    cursor: pointer;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  background: #FFFFFF;
+}
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+.sum {
+    display : flex;
+    position: fixed;
+    bottom: 2%;
+    width: 80%;
+    height: 15%;
+    background: #FFFFFF;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #545454;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.total {
+    width : 45%;
+    display : flex ;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    border-color: #545454;
+}
+.status {
+    width : 35%;
+    display : flex;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    border-color: #545454;
+}
+.submit {
+    width : 20%;
+    display : flex ; 
+    
+}
 </style>
 <html>
     <header>
@@ -176,7 +249,46 @@ body{
             </div>
         </div>
     </div>
-
-   
+    <div class ="calendar">
+        <div class="cal">
+            <div class ="month">
+            <div><button><img src="leftarrow.png" height ="25" width="25" /></button></div>
+            <div><a>October</a></div>
+            <div><button><img src="rightarrow.png" height ="25" width="25" /></button></div>
+            </div>
+            <div class ="func">
+                <button>Insert Log <img src="insert.png" height ="15" width="15" margin="0 0 0 1%"/></button>
+            </div>
+            <div class ="table" style="position: relative";>
+            <table style="width: 100%">
+                <tr>
+                    <th>Date</th>
+                    <th>Mandays</th>
+                    <th>Details Of Service</th>
+                    <th>Detail</th>
+                    <th>Edit</th>
+                </tr>
+            </table>
+            </div>
+        </div>
+        <div class="sum">
+            <div class="total">
+                <div class ="tt">
+                    <a>Total Mandays : <a>
+                </div>
+            </div>
+            <div class="status">
+                <div class ="tt">
+                    <a>Status : <a>
+                </div>
+            </div>
+            <div class="submit">
+                <div class ="tt">
+                    <button>submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     </body>
 </html>
