@@ -58,7 +58,7 @@ body{
 }
 .filbar {
     display : flex ;
-    justify-content :space-evenly ;
+    justify-content :flex-start ;
     position: fixed ;
     top: 16%;
     width: 100%;
@@ -98,7 +98,7 @@ body{
     color : #477295 ; 
 }
 .filbar .project{
-    width: 33.33%;
+    width: 20%;
     display : flex ;
     justify-content: space-evenly;
     font-size: 22px;
@@ -111,7 +111,7 @@ body{
     transform: translateY(-50%);
 }
 .filbar .team{
-    width: 33.33%;
+    width: 20%;
     display : flex ;
     justify-content: space-evenly;
     font-size: 22px;
@@ -332,10 +332,13 @@ tr:nth-child(even) {
                 <tr><th>Date</th><th>Mandays</th><th>Details Of Service</th><th>Detail</th><th>Edit</th></tr>
                 <?php foreach($log_list as $log)
                 {
+                    
                     echo "
                     <tr><td>$log->ldate</td>
                     <td>$log->manday</td>
                     <td>$log->detail</td>
+                    <td><button>detail</button></td>
+                    <td><button>Edit</button></td>
                     </tr>";
                 }
                 ?>
