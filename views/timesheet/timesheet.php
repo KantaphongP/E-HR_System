@@ -166,6 +166,11 @@ body{
     display : flex;
     
 }
+.table button{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
