@@ -7,8 +7,9 @@
     public $detail;
 
 
-    public function __constuct($ts_id,$status_id,$staff_id,$ldate,$manday,$detail)
-    {   $this->ts_id = $ts_id; 
+    public function __construct($ts_id,$status_id,$staff_id,$ldate,$manday,$detail)
+    {  
+        $this->ts_id = $ts_id; 
         $this->status_id = $status_id; 
         $this->staff_id = $staff_id;
         $this->ldate = $ldate;
@@ -32,11 +33,16 @@
             $ldate = $my_row['LDATE'];
             $manday = $my_row['MANDAY']; 
             $detail =  $my_row['DETAIL'];
-            //echo 'eye';
-            //echo $ts_id;
+            echo $ts_id;
+            echo " ";
+            echo $status_id;
+            echo $staff_id;
+            echo $ldate;
+            echo $manday;
             echo $detail;
             
             $logList[] = new log($ts_id,$status_id,$staff_id,$ldate,$manday,$detail);
+           // echo $logList->ldate;
         }
     
         require("connection_close.php");

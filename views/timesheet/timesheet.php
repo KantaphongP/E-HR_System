@@ -1,7 +1,7 @@
 <style>
 body{
     font-family : 'Segoe UI Semibold' ;
-    z-index: 0;
+    z-index: -1;
 }
 .navbar {
     position: fixed ;
@@ -330,7 +330,7 @@ tr:nth-child(even) {
             <div class ="table" style="position: relative";>
                 <table style="width: 100%">
                 <tr><th>Date</th><th>Mandays</th><th>Details Of Service</th><th>Detail</th><th>Edit</th></tr>
-                <?php /*foreach($detail_List as $detail)*/
+                <?php /*foreach($log_List as $log)*/
                 {
                     echo "
                     <tr><td></td><td></td><td></td>
