@@ -171,6 +171,7 @@ body{
     left: 50%;
     transform: translateX(-50%);
 }
+
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
@@ -417,7 +418,6 @@ tr:nth-child(even) {
 
         document.getElementById("insbutton").addEventListener("click", function(){
             document.querySelector(".popup").style.display="none" ;
-
         })
 
         const date = new Date();
