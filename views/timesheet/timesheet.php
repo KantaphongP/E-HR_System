@@ -1,6 +1,7 @@
 <style>
 body{
     font-family : 'Segoe UI Semibold' ;
+    z-index: 0;
 }
 .navbar {
     position: fixed ;
@@ -72,9 +73,7 @@ body{
 .filbar .user{
     width: 33.33%;
     display : flex ;
-    border-style: solid;
-    border-width: 0 1px 0 0;
-    border-color: #545454;
+    
 }
 .filbar .user .ublock{
     display : flex;
@@ -83,7 +82,7 @@ body{
     transform: translateY(-50%);
 }
 .filbar .user .icon{
-    margin: 5 25 0 25;
+    margin: 5 40 0 80;
 }
 .filbar .user .info{
     display : flex;
@@ -196,6 +195,24 @@ tr:nth-child(even) {
     border-width: 0 1px 0 0;
     border-color: #545454;
 }
+.tot {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.stat {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.submit .tt {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
 .total .tt {
     position: relative ;
     display: grid;
@@ -217,6 +234,27 @@ tr:nth-child(even) {
     display : flex ; 
     justify-content: center;
 }
+
+.popup {
+    background : rgba(0, 0, 0, 0.6);
+    width : 100%;
+    height : 100%;
+    position : absolute;
+    top : 0;
+    left: 0;
+    display: none;
+    justify-content : center;
+    align-items: center ;
+}
+.popup-content{
+    height : 50%;
+    width : 50%;
+    background : #fff;
+    padding : 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
 </style>
 <html>
     <header>
@@ -225,7 +263,10 @@ tr:nth-child(even) {
     <body style="background-color:BED2E5;">
 
     <div class="navbar">
-        <a>My Timesheet</a>
+        <div class="appli">
+
+            <a style="margin : 0 0 0 1%">My Timesheet</a>
+        </div>
         <ul>
             <li><button class="button"><img src="search.png" height ="25" width="25" /></li>
             <li><button class="button"><img src="notification.png" height ="25" width="25" /></button></li>
@@ -273,41 +314,51 @@ tr:nth-child(even) {
     <div class ="calendar">
         <div class="cal">
             <div class ="month">
-            <div class ="pre"><button class ="prev"><img src="leftarrow.png" height ="25" width="25" /></button></div>
-            <div class ="mon"><h1></h1></div>
-            <div class ="nex"><button class ="next"><img src="rightarrow.png" height ="25" width="25" /></button></div>
+                <div class ="pre"><button class ="prev"><img src="leftarrow.png" height ="25" width="25" /></button></div>
+                <div class ="mon">
+                <div class ="dt">
+                <h1></h1>
+                <p style="text-align: center;"></p>
+                </div>
+                </div>
+                <div class ="nex"><button class ="next"><img src="rightarrow.png" height ="25" width="25" /></button></div>
             </div>
             <div class ="func">
                 <a></a>
-                <button>Insert Log <img src="insert.png" height ="15" width="15" margin="0 0 0 1%"/></button>
+                <button class="button" id="button">Insert Log <img src="insert.png" height ="15" width="15" margin="0 0 0 1%"/></button>
             </div>
             <div class ="table" style="position: relative";>
-            <table style="width: 100%">
-                <tr>
-                    <th>Date</th>
-                    <th>Mandays</th>
-                    <th>Details Of Service</th>
-                    <th>Detail</th>
-                    <th>Edit</th>
-                </tr>
-            </table>
+                <table style="width: 100%">
+                <tr><th>Date</th><th>Mandays</th><th>Details Of Service</th><th>Detail</th><th>Edit</th></tr>
+                <?php /*foreach($detail_List as $detail)*/
+                {
+                    echo "
+                    <tr><td></td><td></td><td></td>
+                    </tr>";
+                }
+                ?>
+                </table>
             </div>
         </div>
         <div class="sum">
             <div class="total">
-                <div class ="tt">
-                    <a>Total Mandays : </a>                
-                </div>
-                <div class ="summan">
-                <?php echo " 19" ?>
+                <div class="tot">
+                    <div class ="tt">
+                        <a>Total Mandays : </a>                
+                    </div>
+                    <div class ="summan">
+                    <?php echo " 19" ?>
+                    </div>
                 </div>
             </div>
             <div class="status">
-                <div class ="tt">
-                    <a>Status : </a>
-                </div>
-                <div class ="appr">
-                    <?php echo " Approved" ?>
+                <div class="stat">
+                    <div class ="tt">
+                        <a>Status : </a>
+                    </div>
+                    <div class ="appr">
+                        <?php echo " Approved" ?>
+                    </div>
                 </div>
             </div>
             <div class="submit">
@@ -318,8 +369,47 @@ tr:nth-child(even) {
             
         </div>
     </div>
+    <div class ="popup">
+        <div class="popup-content">
+            <form method="get" action="">
+                <div class="head">
+                <h>Insert Work Log</h>
+                </div>
+                <div class="create">
+                <p>Date :<a></a></p>
+                <p>Timesheet Information</p>
+                <p>Timesheet ID : <?php echo "2209BTHFUNF01"?></p>
+                <p>Name : <?php echo "Bussakorn Palatorn"?></p>
+                <p>Project : <?php echo "Derndao BTH"?></p>
+                <p>Team : <?php echo "Funtional"?></p>
 
+                <p>Details Of Service : <input type ="text" name="DOS"></p>
+                <p>Mandays : <input type ="text" name="MANDAY"></p>
+                <p>Notes : <input type ="text"name="NOTE"></p>
+                
+                </div>
+                <div class="insertbutton">
+                    <button class ="ccbutton" id="ccbutton">cancel</button>
+                    <!--<input type="hidden" name="controller" value = "lecturer"/></div>-->
+                    <button class ="insbutton" id="insbutton" type="submit">insert</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <script>
+        document.getElementById("button").addEventListener("click", function(){
+            document.querySelector(".popup").style.display="flex" ;
+        })
+
+        document.getElementById("ccbutton").addEventListener("click", function(){
+            document.querySelector(".popup").style.display="none" ;
+        })
+
+        document.getElementById("insbutton").addEventListener("click", function(){
+            document.querySelector(".popup").style.display="none" ;
+
+        })
+
         const date = new Date();
         const renderCalendar = () => {
         const months = [
@@ -339,6 +429,10 @@ tr:nth-child(even) {
         document.querySelector(".month h1").innerHTML = months[date.getMonth()];
         }
 
+        var datestring = date.getFullYear() +"-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2) ;
+        document.querySelector(".create a").innerHTML = datestring ;
+
+        document.querySelector(".month p").innerHTML = date.getFullYear() ;
         document.querySelector(".func a").innerHTML = date.getMonth()+1 ; 
 
         document.querySelector(".prev").addEventListener("click", () => {
@@ -350,6 +444,9 @@ tr:nth-child(even) {
         date.setMonth(date.getMonth() + 1);
         renderCalendar();
         });
+
+        
+      
 
         renderCalendar();
     </script>
