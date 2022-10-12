@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2022 at 10:43 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Oct 12, 2022 at 06:20 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,9 +30,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `log` (
   `TS_ID` varchar(13) NOT NULL,
   `STATUS_ID` int(11) NOT NULL,
-  `STAFF_ID` varchar(5) NOT NULL,
-  `LEAD_ID` varchar(5) NOT NULL
+  `STAFF_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `log`
+--
+
+INSERT INTO `log` (`TS_ID`, `STATUS_ID`, `STAFF_ID`) VALUES
+('2210P01D01S01', 0, 'STF02');
 
 -- --------------------------------------------------------
 
@@ -44,8 +50,15 @@ CREATE TABLE `log_detail` (
   `TS_ID` varchar(13) NOT NULL,
   `LDATE` date NOT NULL,
   `MANDAY` float NOT NULL,
-  `DOS` text NOT NULL
+  `DETAIL` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `log_detail`
+--
+
+INSERT INTO `log_detail` (`TS_ID`, `LDATE`, `MANDAY`, `DETAIL`) VALUES
+('2210P01D01S01', '2022-10-12', 1, 'Work E-HR Project');
 
 -- --------------------------------------------------------
 
@@ -77,6 +90,13 @@ CREATE TABLE `sl` (
   `LEAD_ID` varchar(5) NOT NULL,
   `STAFF_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sl`
+--
+
+INSERT INTO `sl` (`LEAD_ID`, `STAFF_ID`) VALUES
+('STF03', 'STF02');
 
 -- --------------------------------------------------------
 
@@ -110,6 +130,14 @@ CREATE TABLE `status` (
   `STATUS_ID` int(11) NOT NULL,
   `STATUS_NAME` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`STATUS_ID`, `STATUS_NAME`) VALUES
+(0, 'Waiting Approve'),
+(1, 'Approve');
 
 -- --------------------------------------------------------
 
@@ -156,8 +184,7 @@ INSERT INTO `team` (`TEAM_ID`, `TEAM_NAME`, `PROJ_ID`) VALUES
 ALTER TABLE `log`
   ADD PRIMARY KEY (`TS_ID`),
   ADD KEY `STATUS_ID` (`STATUS_ID`),
-  ADD KEY `STAFF_ID` (`STAFF_ID`),
-  ADD KEY `LEAD_ID` (`LEAD_ID`);
+  ADD KEY `STAFF_ID` (`STAFF_ID`);
 
 --
 -- Indexes for table `log_detail`
@@ -176,7 +203,7 @@ ALTER TABLE `project`
 -- Indexes for table `sl`
 --
 ALTER TABLE `sl`
-  ADD PRIMARY KEY (`LEAD_ID`,`STAFF_ID`),
+  ADD PRIMARY KEY (`STAFF_ID`),
   ADD KEY `LEAD_ID` (`LEAD_ID`,`STAFF_ID`),
   ADD KEY `STAFF_ID` (`STAFF_ID`);
 
@@ -216,8 +243,7 @@ ALTER TABLE `team`
 --
 ALTER TABLE `log`
   ADD CONSTRAINT `log_ibfk_1` FOREIGN KEY (`STATUS_ID`) REFERENCES `status` (`STATUS_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `log_ibfk_2` FOREIGN KEY (`LEAD_ID`) REFERENCES `sl` (`LEAD_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `log_ibfk_3` FOREIGN KEY (`STAFF_ID`) REFERENCES `sl` (`STAFF_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `log_ibfk_2` FOREIGN KEY (`STAFF_ID`) REFERENCES `sl` (`STAFF_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `log_detail`
@@ -229,8 +255,7 @@ ALTER TABLE `log_detail`
 -- Constraints for table `sl`
 --
 ALTER TABLE `sl`
-  ADD CONSTRAINT `sl_ibfk_1` FOREIGN KEY (`STAFF_ID`) REFERENCES `staff` (`STAFF_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `sl_ibfk_2` FOREIGN KEY (`LEAD_ID`) REFERENCES `staff` (`STAFF_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `sl_ibfk_1` FOREIGN KEY (`STAFF_ID`) REFERENCES `staff` (`STAFF_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `stp`

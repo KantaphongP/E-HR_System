@@ -2,7 +2,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "dbehr";
+    $dbname = "ehrdb";
 
     $conn =  mysqli_connect($servername,$username,$password);
     mysqli_set_charset($conn, "utf8");

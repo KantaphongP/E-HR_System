@@ -3,7 +3,8 @@
     {
         public function timesheet()
         {   
-            // $log_list = log::getAll();
+            $log_list = log::getAll();
+
             require_once('views/timesheet/timesheet.php'); }
         
     }
