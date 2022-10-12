@@ -42,7 +42,7 @@
             echo $detail;
             
             $logList[] = new log($ts_id,$status_id,$staff_id,$ldate,$manday,$detail);
-           // echo $logList->ldate;
+           // echo $logList[0]->ldate;
         }
     
         require("connection_close.php");

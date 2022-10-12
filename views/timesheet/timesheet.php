@@ -330,10 +330,12 @@ tr:nth-child(even) {
             <div class ="table" style="position: relative";>
                 <table style="width: 100%">
                 <tr><th>Date</th><th>Mandays</th><th>Details Of Service</th><th>Detail</th><th>Edit</th></tr>
-                <?php /*foreach($log_List as $log)*/
+                <?php foreach($log_list as $log)
                 {
                     echo "
-                    <tr><td></td><td></td><td></td>
+                    <tr><td>$log->ldate</td>
+                    <td>$log->manday</td>
+                    <td>$log->detail</td>
                     </tr>";
                 }
                 ?>
