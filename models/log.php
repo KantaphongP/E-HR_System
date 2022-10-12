@@ -21,9 +21,12 @@
     public static function getAll()
     {
         //echo "eye";
+        $user_id1 = 'STF01';
+        $user_id2 = 'STF02';
+        $user_id3 = 'STF03';
         $logList=[];
         require("connection_connect.php");
-        $sql="SELECT * FROM `log` NATURAL JOIN log_detail";
+        $sql="SELECT * FROM `log` NATURAL JOIN log_detail WHERE log.STAFF_ID = '$user_id2'";
         $result=$conn->query($sql);
         while($my_row = $result->fetch_assoc())
         {   
@@ -33,13 +36,6 @@
             $ldate = $my_row['LDATE'];
             $manday = $my_row['MANDAY']; 
             $detail =  $my_row['DETAIL'];
-            echo $ts_id;
-            echo " ";
-            echo $status_id;
-            echo $staff_id;
-            echo $ldate;
-            echo $manday;
-            echo $detail;
             
             $logList[] = new log($ts_id,$status_id,$staff_id,$ldate,$manday,$detail);
            // echo $logList[0]->ldate;
