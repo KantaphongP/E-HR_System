@@ -23,7 +23,7 @@
             $STAFF_ID = $my_row['STAFF_ID'];
             $S_FNAME = $my_row['S_FNAME'];
             $S_LNAME=$my_row['S_LNAME'];
-            $$DOB=$my_row['$DOB'];
+            $DOB=$my_row['DOB'];
             $staffList[] = new Staff($STAFF_ID,$S_FNAME,$S_LNAME,$DOB);
         }
         require("connection_close.php");
