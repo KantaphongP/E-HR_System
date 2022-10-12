@@ -2,7 +2,9 @@
     class TimesheetController
     {
         public function timesheet()
-        {   require_once('views/timesheet/timesheet.php'); }
+        {   
+            // $log_list = log::getAll();
+            require_once('views/timesheet/timesheet.php'); }
         
     }
 ?>
