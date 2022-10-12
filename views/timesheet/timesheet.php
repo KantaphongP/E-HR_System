@@ -129,6 +129,9 @@ body{
     left: 0;
     width: 100%;
     height : 76% ;
+    background-color: #EFF4F9;
+    border: solid;
+    border-width: 1px;
 }
 .calendar .cal{
     width: 80%;
