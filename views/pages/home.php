@@ -97,8 +97,8 @@ body{
         <a>My Home</a>
     </div>
     <div class="allapp">
-        <div class="mytimesheet" href =?controller=timesheet&action=mytimesheet>
-            <a>My Timesheet</a>
+        <div class="mytimesheet">
+            <a href =?controller=timesheet&action=myTimesheet&staff_id=STF02>My Timesheet</a>
         </div>
     </div>
 

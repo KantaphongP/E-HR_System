@@ -404,8 +404,9 @@ tr:nth-child(even) {
                 </div>
                 <div class="insertbutton">
                     <input type="hidden" name= "controller" value="timesheet"/>
+
                     <button class ="ccbutton" id="ccbutton">cancel</button>
-                    <!--<input type="hidden" name="controller" value = "lecturer"/></div>-->
+                    <input type="hidden" name="staff_id" value = "<?php echo $staff_id; ?>"/>
                     <button class ="insbutton" id="insbutton" type="submit" name="action" value="addTimesheet">insert</button>
                 </div>
             </form>
