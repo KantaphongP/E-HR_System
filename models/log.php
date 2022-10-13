@@ -26,7 +26,7 @@
         $logList=[];
         require("connection_connect.php");
 
-        $sql="SELECT * FROM `log` NATURAL JOIN log_detail WHERE log.STAFF_ID = '$staff_id'";
+        $sql="SELECT * FROM `log` NATURAL JOIN log_detail WHERE log.STAFF_ID = '$staff_id' ORDER BY log_detail.LDATE";
         $result=$conn->query($sql);
         while($my_row = $result->fetch_assoc())
         {   
@@ -38,7 +38,6 @@
             $detail =  $my_row['DETAIL'];
             $note = $my_row['NOTE'];
             $logList[] = new log($ts_id,$status_id,$staff_id,$ldate,$manday,$detail,$note);
-           // echo $logList[0]->ldate;
            
         }
         
@@ -50,7 +49,7 @@
     public static function addTimesheetDetail($DETAIL,$MANDAY,$NOTE,$STAFF_ID)
      {
         require("connection_connect.php");
-        $LDATE = '2023-02-18';
+        $LDATE = '2023-02-12';
         $TS_ID = substr($LDATE,0,4).substr($LDATE,5,2).substr($STAFF_ID,0,1).substr($STAFF_ID,3,2);
         $sql = "SELECT count(`TS_ID`) AS check_id FROM `log` WHERE TS_ID = '$TS_ID'";
         $result = $conn->query($sql);
@@ -58,25 +57,37 @@
         $check = $my_row['check_id'];
         
         if($check==0){
-               $sql = "INSERT INTO `log`(`TS_ID`, `STATUS_ID`, `STAFF_ID`) VALUES ('$TS_ID','0','$STAFF_ID')";
+               
+               $sql = "INSERT INTO `log`(`TS_ID`, `STATUS_ID`, `STAFF_ID`,`TOTAL_MANDAY`) VALUES ('$TS_ID','0','$STAFF_ID','$MANDAY')";
                $result = $conn->query($sql);
 
                $sql = "INSERT INTO `log_detail`(`TS_ID`, `LDATE`, `MANDAY`, `DETAIL`,`NOTE`) VALUES ('$TS_ID','$LDATE','$MANDAY','$DETAIL','$NOTE')";
                $result = $conn->query($sql);
+
+               
         }
 
         else{   
-                $sql = "INSERT INTO `log_detail`(`TS_ID`, `LDATE`, `MANDAY`, `DETAIL`,`NOTE`) VALUES ('$TS_ID','$LDATE','$MANDAY','$DETAIL','$NOTE')";
+               $sql = "INSERT INTO `log_detail`(`TS_ID`, `LDATE`, `MANDAY`, `DETAIL`,`NOTE`) VALUES ('$TS_ID','$LDATE','$MANDAY','$DETAIL','$NOTE')";
                $result = $conn->query($sql);
+
+               $sql ="UPDATE `log` SET `TOTAL_MANDAY`= TOTAL_MANDAY +'$MANDAY' WHERE TS_ID = '$TS_ID'";
+               $result = $conn->query($sql);
+
          }
         
-        
-        /*
-        ldate -> ค่าที่กรอกวันที่ตอนเพิ่มทามชีท
-        $TS_ID=substr($ldate,0,4).substr($ldate,5,2).substr($staff_id,0,1).substr($staff_id,3,2);
-        */
         require("connection_close.php");
         return  ;
+     }
+     
+     public static function update($TS_ID,$LDATE,$DETAIL,$MANDAY,$NOTE){
+
+        require("connection_connect.php");
+        $sql ="UPDATE `log_detail` SET `LDATE`='$LDATE',`MANDAY`='$MANDAY',`DETAIL`='$DETAIL',`NOTE`='$NOTE' WHERE TS_ID = $TS_ID and LDATE = $LDATE";
+        $result = $conn->query($sql);
+        require("connection_close.php");
+        return ;
+
      }
 } 
 ?>
