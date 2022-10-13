@@ -390,7 +390,8 @@ tr:nth-child(even) {
                 <h>Insert Work Log</h>
                 </div>
                 <div class="create">
-                <p>Date :<a></a></p>
+                
+                <p>Date :<input type ="date" name="DOD" id = "DOD"></p></p>
                 <p>Timesheet Information</p>
                 <p>Timesheet ID : <?php echo "2209BTHFUNF01"?></p>
                 <p>Name : <?php echo "Bussakorn Palatorn"?></p>
@@ -445,7 +446,7 @@ tr:nth-child(even) {
         }
 
         var datestring = date.getFullYear() +"-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2) ;
-        document.querySelector(".create a").innerHTML = datestring ;
+        DOD.value = datestring
 
         document.querySelector(".month p").innerHTML = date.getFullYear() ;
         document.querySelector(".func a").innerHTML = date.getMonth()+1 ; 
