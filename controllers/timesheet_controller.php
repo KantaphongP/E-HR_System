@@ -5,8 +5,17 @@
         {   
             
             $log_list = log::getAll();
-            echo "eye";
-            require_once('./views/timesheet/timesheet.php'); }
+            require_once('./views/timesheet/timesheet.php');
+        }
         
+        public function addTimesheet()
+        {
+             $detail = $_GET['DOS'];
+             $manday = $_GET['MANDAY'];
+             $note =  $_GET['NOTE'];
+
+             log::addTimesheetDetail($detail,$manday,$note);
+             TimesheetController::timesheet();
+        }
     }
 ?>
