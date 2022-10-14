@@ -270,7 +270,6 @@ tr:nth-child(even) {
         <title>My Timesheet</title>
     </header>
     <body style="background-color:BED2E5;">
-
     <div class="navbar">
         <div class="appli">
 
@@ -325,10 +324,10 @@ tr:nth-child(even) {
             <div class ="month">
                 <div class ="pre"><button class ="prev"><img src="leftarrow.png" height ="25" width="25" /></button></div>
                 <div class ="mon">
-                <div class ="dt">
-                <h1></h1>
-                <p style="text-align: center;"></p>
-                </div>
+                    <div class ="dt">
+                        <h1></h1>
+                        <p style="text-align: center;"></p>
+                    </div>
                 </div>
                 <div class ="nex"><button class ="next"><img src="rightarrow.png" height ="25" width="25" /></button></div>
             </div>
@@ -416,11 +415,9 @@ tr:nth-child(even) {
         document.getElementById("button").addEventListener("click", function(){
             document.querySelector(".popup").style.display="flex" ;
         })
-
         document.getElementById("ccbutton").addEventListener("click", function(){
             document.querySelector(".popup").style.display="none" ;
         })
-
         document.getElementById("insbutton").addEventListener("click", function(){
             document.querySelector(".popup").style.display="none" ;
         })
@@ -442,23 +439,31 @@ tr:nth-child(even) {
             "December",
             ];
         document.querySelector(".month h1").innerHTML = months[date.getMonth()];
+        document.querySelector(".func a").innerHTML = date.getMonth()+1 ;
+        document.querySelector(".month p").innerHTML = date.getFullYear() ;
+       
         }
 
         var datestring = date.getFullYear() +"-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2) ;
         DOD.value = datestring
-
-        document.querySelector(".month p").innerHTML = date.getFullYear() ;
-        document.querySelector(".func a").innerHTML = date.getMonth()+1 ; 
-
+        
         document.querySelector(".prev").addEventListener("click", () => {
-            date.setMonth(date.getMonth() - 1);
+            var d = date.setMonth(date.getMonth() - 1);
+            if (d = 0) date.setYear(date.getFullYear()-1) ;
+            renderCalendar();
+        });
+        document.querySelector(".next").addEventListener("click", () => {
+            date.setMonth(date.getMonth() + 1);
+            renderCalendar();
+        });
+        document.querySelector(".next").addEventListener("click", () => {
+            if (date.getMonth() = 12) date.setYear(date.getFullYear()+1) ;
             renderCalendar();
         });
 
-        document.querySelector(".next").addEventListener("click", () => {
-        date.setMonth(date.getMonth() + 1);
-        renderCalendar();
-        });
+        
+
+        
 
         
       
