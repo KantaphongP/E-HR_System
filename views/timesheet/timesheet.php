@@ -174,7 +174,6 @@ body{
     left: 50%;
     transform: translateX(-50%);
 }
-
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
@@ -243,7 +242,6 @@ tr:nth-child(even) {
     display : flex ; 
     justify-content: center;
 }
-
 .popup {
     background : rgba(0, 0, 0, 0.6);
     width : 100%;
@@ -344,7 +342,7 @@ tr:nth-child(even) {
                     <tr><td>$log->ldate</td>
                     <td>$log->manday</td>
                     <td>$log->detail</td>
-                    <td><button>Edit</button></td>
+                    <td><a href=?controller=timesheet&action=myTimesheet&staff_id=$staff_id&m=$month&y=$year&TS_ID=$log_month_row->TS_ID&ldate=$log->ldate>Edit</a></td>
                     </tr>";
                 }
                 ?>
@@ -402,7 +400,7 @@ tr:nth-child(even) {
                 
                 </div>
                 <div class="insertbutton">
-                    
+                    <input type="hidden" name= "controller" value="timesheet"/>
                     <input type="hidden" name="staff_id" value = "<?php echo $staff_id; ?>"/>
                     <button class ="insbutton" id="insbutton" type="submit" name="action" value="addTimesheet">insert</button>
                 </div>
@@ -418,6 +416,10 @@ tr:nth-child(even) {
         })
         document.getElementById("insbutton").addEventListener("click", function(){
             document.querySelector(".popup").style.display="none" ;
+        })
+        document.querySelector(".table a").addEventListener("click", function(){
+            document.querySelector(".popup").style.display="flex" ;
+            
         })
 
         const date = new Date();
@@ -469,13 +471,6 @@ tr:nth-child(even) {
         });
         document.querySelector(".next").addEventListener("click", () => {
             if (date.getMonth() = 12) date.setYear(date.getFullYear()+1) ;
-            renderCalendar();
-        });
-        document.querySelector(".insbutton").addEventListener("click", () => {
-            var m =date.getMonth()+1 ;
-            var y =date.getFullYear() ;
-            href ='?controller=timesheet&action=myTimesheet&staff_id=STF02';
-            location.href = this.href+'&m='+m +'&y='+y ;
             renderCalendar();
         });
         document.querySelector(".ccbutton").addEventListener("click", () => {
