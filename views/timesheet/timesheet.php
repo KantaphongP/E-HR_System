@@ -335,7 +335,7 @@ tr:nth-child(even) {
                 <a></a>
                 <button class="button" id="button">Insert Log <img src="insert.png" height ="15" width="15" margin="0 0 0 1%"/></button>
             </div>
-            <div class ="table" style="position: relative";>
+            <div class ="table" style="position: relative" id="tablebutton";>
                 <table style="width: 100%">
                 <tr><th>Date</th><th>Mandays</th><th>Details Of Service</th><th>Edit</th></tr>
                 <?php foreach($log_list as $log)
