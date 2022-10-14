@@ -70,15 +70,24 @@
 
                $sql = "INSERT INTO `log_detail`(`TS_ID`, `LDATE`, `MANDAY`, `DETAIL`,`NOTE`) VALUES ('$TS_ID','$LDATE','$MANDAY','$DETAIL','$NOTE')";
                $result = $conn->query($sql);
-
-               
         }
 
         else{   
-               $sql = "INSERT INTO `log_detail`(`TS_ID`, `LDATE`, `MANDAY`, `DETAIL`,`NOTE`) VALUES ('$TS_ID','$LDATE','$MANDAY','$DETAIL','$NOTE')";
-               //$result = $conn->query($sql);
-                if(){
-               echo $result;}
+            $sql2 = "SELECT count(`TS_ID`) AS check_id FROM `log_detail` WHERE TS_ID = '$TS_ID' and ldate = '$LDATE'";
+            $result2 = $conn->query($sql2);
+            $my_row = $result2->fetch_assoc();
+            $check2 = $my_row['check_id'];
+
+            if($check2==0){
+               $sql = "INSERT INTO `log_detail`(`TS_ID`, `LDATE`, `MANDAY`, `DETAIL`,`NOTE`) VALUES ('$TS_ID','$LDATE','$MANDAY','$DETAIL','$NOTE')";             
+               $result = $conn->query($sql);
+           }      
+           else{
+
+            
+                $message = "Duplicate date, You have to change the new date or delete your old detail";
+                echo "<script type = 'text/javascript'>alert('$message');</script>";
+           }     
         //        if($conn_error){
         //        echo("Error description: " . $mysqli -> error);
         // }
@@ -89,7 +98,7 @@
          }
         
         require("connection_close.php");
-        return  ;
+        return ;
      }
      
      public static function update($TS_ID,$LDATE,$DETAIL,$MANDAY,$NOTE){
