@@ -98,7 +98,7 @@ body{
     </div>
     <div class="allapp">
         <div class="mytimesheet">
-            <a href =?controller=timesheet&action=myTimesheet&staff_id=STF01>My Timesheet</a>
+            <a href =?controller=timesheet&action=myTimesheet&staff_id=STF02>My Timesheet</a>
             <button class="mybutton" id="mybutton" >My Timesheet</button>
         </div>
     </div>
