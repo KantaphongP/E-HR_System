@@ -290,10 +290,10 @@ tr:nth-child(even) {
                 <div class = "icon"><img src="user.png" height ="32" width="32" /></div>
                 <div class = "info">
                     <div class="name">
-                        <?php echo "Bussakorn Palatorn" ?>
+                        <?php echo $staff_row->S_FNAME ." ".$staff_row->S_LNAME ?>
                     </div>
                     <div class="pos" >
-                        <?php echo "Functional" ?>
+                        <?php echo $staff_row->TEAM_NAME ?>
                     </div>
                 </div>
             </div>
@@ -304,7 +304,7 @@ tr:nth-child(even) {
                 <a>Project : </a>
                 </div>
                 <div class="pproject">
-                <?php echo " Derndao BTH" ?>
+                <?php echo $staff_row->PROJ_NAME ?>
                 </div>
             </div>
         </div>
@@ -314,7 +314,7 @@ tr:nth-child(even) {
                 <a>Team : </a>
                 </div>
                 <div class="tteam">
-                <?php echo "Functional" ?>
+                <?php echo $staff_row->TEAM_NAME ?>
                 </div>
             </div>
         </div>
@@ -358,7 +358,7 @@ tr:nth-child(even) {
                         <a>Total Mandays : </a>                
                     </div>
                     <div class ="summan">
-                    <?php echo " 19" ?>
+                    <?php echo $log_month_row->TOTAL_MANDAY ?>
                     </div>
                 </div>
             </div>
@@ -368,7 +368,7 @@ tr:nth-child(even) {
                         <a>Status : </a>
                     </div>
                     <div class ="appr">
-                        <?php echo " Approved" ?>
+                        <?php echo $log_month_row->STATUS_NAME ?>
                     </div>
                 </div>
             </div>
