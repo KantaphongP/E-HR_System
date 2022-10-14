@@ -402,6 +402,8 @@ tr:nth-child(even) {
                 <div class="insertbutton">
                     <input type="hidden" name= "controller" value="timesheet"/>
                     <input type="hidden" name="staff_id" value = "<?php echo $staff_id; ?>"/>
+                    <input type="hidden" name="m" value = "<?php echo $month; ?>"/>
+                    <input type="hidden" name="y" value = "<?php echo $year; ?>"/>
                     <button class ="insbutton" id="insbutton" type="submit" name="action" value="addTimesheet">insert</button>
                 </div>
             </form>
