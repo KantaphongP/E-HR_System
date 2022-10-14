@@ -387,22 +387,26 @@ tr:nth-child(even) {
                 </div>
                 <div class="create">
                 
-                <p>Date :<input type ="date" name="DOD" id = "DOD"></p></p>
+                <p>Date :<input type ="date" name="DOD" id = "DOD" value = "<?php echo $log_detail->ldate; ?>"></p></p>
                 <p>Timesheet Information</p>
-                <p>Timesheet ID : <?php echo "2209BTHFUNF01"?></p>
-                <p>Name : <?php echo "Bussakorn Palatorn"?></p>
-                <p>Project : <?php echo "Derndao BTH"?></p>
-                <p>Team : <?php echo "Funtional"?></p>
+                <p>Timesheet ID : <?php echo $ts_id;?></p>
+                <p>Name : <?php echo $staff_row->S_FNAME." ".$staff_row->S_LNAME?></p>
+                <p>Project : <?php echo $staff_row->PROJ_NAME?></p>
+                <p>Team : <?php echo $staff_row->TEAM_NAME?></p>
 
-                <p>Details Of Service : <input type ="text" name="DOS" id="DOD"></p>
-                <p>Mandays : <input type ="text" name="MANDAY" id="DOD"></p>
-                <p>Notes : <input type ="text"name="NOTE" id="DOD"></p>
+                <p>Details Of Service : <input type ="text" name="DOS" id="DOD" value ="<?php echo $log_detail->detail?>"></p>
+                <p>Mandays : <input type ="text" name="MANDAY" id="DOD" value ="<?php echo $log_detail->manday?>"></p>
+                <p>Notes : <input type ="text"name="NOTE" id="DOD" value ="<?php echo $log_detail->note?>"></p>
                 
                 </div>
                 <div class="insertbutton">
                     <input type="hidden" name= "controller" value="timesheet"/>
+                    <input type="hidden" name="m" value = "<?php echo $month; ?>"/>
+                    <input type="hidden" name="y" value = "<?php echo $year; ?>"/>
+                    <input type="hidden" name="manday_old" value = "<?php echo $manday_old; ?>"/>
                     <input type="hidden" name="staff_id" value = "<?php echo $staff_id; ?>"/>
-                    <button class ="insbutton" id="insbutton" type="submit" name="action" value="addTimesheet">insert</button>
+                    <button class ="insbutton" id="insbutton" type="submit" name="action" value="updateTimesheet">Update</button>
+                    <button class ="insbutton" id="insbutton" type="submit" name="action" value="deleteTimesheet">Delete</button>
                 </div>
             </form>
         </div>
@@ -419,7 +423,6 @@ tr:nth-child(even) {
         })
         document.querySelector(".table a").addEventListener("click", function(){
             document.querySelector(".popup").style.display="flex" ;
-            
         })
 
         const date = new Date();

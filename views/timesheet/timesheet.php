@@ -389,10 +389,10 @@ tr:nth-child(even) {
                 
                 <p>Date :<input type ="date" name="DOD" id = "DOD"></p></p>
                 <p>Timesheet Information</p>
-                <p>Timesheet ID : <?php echo "2209BTHFUNF01"?></p>
-                <p>Name : <?php echo "Bussakorn Palatorn"?></p>
-                <p>Project : <?php echo "Derndao BTH"?></p>
-                <p>Team : <?php echo "Funtional"?></p>
+                <p>Timesheet ID : <?php echo $log_month_row->TS_ID?></p>
+                <p>Name : <?php echo $staff_row->S_FNAME." ".$staff_row->S_LNAME?></p>
+                <p>Project : <?php echo $staff_row->PROJ_NAME?></p>
+                <p>Team : <?php echo $staff_row->TEAM_NAME?></p>
 
                 <p>Details Of Service : <input type ="text" name="DOS" id="DOD"></p>
                 <p>Mandays : <input type ="text" name="MANDAY" id="DOD"></p>
@@ -418,10 +418,6 @@ tr:nth-child(even) {
         })
         document.getElementById("insbutton").addEventListener("click", function(){
             document.querySelector(".popup").style.display="none" ;
-        })
-        document.querySelector(".table a").addEventListener("click", function(){
-            document.querySelector(".popup").style.display="flex" ;
-            
         })
 
         const date = new Date();
