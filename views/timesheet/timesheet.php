@@ -178,13 +178,38 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   background: #FFFFFF;
+  border-color : #AEAEAE;
+}
+.table .tb th{
+    position: sticky;
+    top: 0;
+    background-color : #AEAEAE;
+    text-align:center;
+} 
+.table .tb td{
+    
+}
+tbody>tr>:nth-child(3){  
+    text-align:left;
+}
+tbody>tr>:nth-child(1){
+    width: 15% ;      
+    text-align:center;
+}
+tbody>tr>:nth-child(2){
+    width: 15% ;      
+    text-align:center;
+}
+tbody>tr>:nth-child(4){
+    width: 15% ;      
+    text-align:center;
 }
 tr:nth-child(even) {
   background-color: #D6EEEE;
 }
 .sum {
     display : flex;
-    bottom: 2%;
+    bottom: 0%;
     width: 80%;
     height: 15%;
     background: #FFFFFF;
@@ -355,19 +380,21 @@ tr:nth-child(even) {
                 <button class="button" id="button">Insert Log <img src="insert.png" height ="15" width="15" margin="0 0 0 1%"/></button>
             </div>
             <div class ="table" style="position: relative" id="tablebutton";>
-                <table style="width: 100%">
-                <tr><th>Date</th><th>Mandays</th><th>Details Of Service</th><th>Edit</th></tr>
-                <?php foreach($log_list as $log)
-                {
+                <div class="tb" style="overflow-y: scroll ;position: relative;height: 400px; border = solid ; boder-width = 1px">
+                    <table style="width: 100%">
+                    <tr><th>Date</th><th>Mandays</th><th>Details Of Service</th><th>Edit</th></tr>
+                    <?php foreach($log_list as $log)
+                    {
                     echo "
                     <tr><td>$log->ldate</td>
                     <td>$log->manday</td>
-                    <td>$log->detail</td>
+                    <td >$log->detail</td>
                     <td><a href=?controller=timesheet&action=myTimesheetDetail&staff_id=$staff_id&m=$month&y=$year&TS_ID=$log_month_row->TS_ID&ldate=$log->ldate>Edit</a></td>
                     </tr>";
-                }
-                ?>
+                    }
+                    ?>
                 </table>
+                </div>
             </div>
         </div>
        
