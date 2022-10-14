@@ -263,6 +263,26 @@ tr:nth-child(even) {
     position: relative;
 }
 
+.popup2 {
+    background : rgba(0, 0, 0, 0.6);
+    width : 100%;
+    height : 100%;
+    position : absolute;
+    top : 0;
+    left: 0;
+    display: flex;
+    justify-content : center;
+    align-items: center ;
+}
+.popup2-content{
+    height : 50%;
+    width : 50%;
+    background : #fff;
+    padding : 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
 </style>
 <html>
     <header>
@@ -401,7 +421,7 @@ tr:nth-child(even) {
                 <p>Notes : <input type ="text"name="NOTE" id="DOD" require></p>
                 
                 </div>
-                <div class="insertbutton">
+                <div class="insertbutton" id ="insertbutton">
                     <input type="hidden" name= "controller" value="timesheet"/>
                     <input type="hidden" name="staff_id" value = "<?php echo $staff_id; ?>"/>
                     <input type="hidden" name="m" value = "<?php echo $month; ?>"/>
@@ -418,6 +438,7 @@ tr:nth-child(even) {
         document.getElementById("ccbutton").addEventListener("click", function(){
             document.querySelector(".popup").style.display="none" ;
         })
+        
         document.getElementById("insbutton").addEventListener("click", function(){
             document.querySelector(".popup").style.display="none" ;
         })
@@ -474,6 +495,13 @@ tr:nth-child(even) {
             renderCalendar();
         });
         document.querySelector(".ccbutton").addEventListener("click", () => {
+            var m =date.getMonth()+1 ;
+            var y =date.getFullYear() ;
+            href ='?controller=timesheet&action=myTimesheet&staff_id=STF02';
+            location.href = this.href+'&m='+m +'&y='+y ;
+            renderCalendar();
+        });
+        document.querySelector(".insertbutton").addEventListener("click", () => {
             var m =date.getMonth()+1 ;
             var y =date.getFullYear() ;
             href ='?controller=timesheet&action=myTimesheet&staff_id=STF02';

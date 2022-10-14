@@ -52,8 +52,7 @@
              $note =  $_GET['NOTE'];
              $staff_id = $_GET['staff_id'];
              $manday = $manday_new - $manday_old;
-             $month = $_GET['m'];
-             $year = $_GET['y'];
+             
 
              log_detail::update($detail,$manday_new,$note,$staff_id,$ldate,$manday);
              TimesheetController::myTimesheet();

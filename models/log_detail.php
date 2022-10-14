@@ -59,7 +59,8 @@
         $result = $conn->query($sql);
         
        
-
+        $m = substr($LDATE,5,2) ;
+        $y = substr($LDATE,0,4) ;
         $my_row = $result->fetch_assoc();
         $check = $my_row['check_id'];
         
@@ -85,12 +86,16 @@
                $result = $conn->query($sql);
                $sql ="UPDATE log SET TOTAL_MANDAY= TOTAL_MANDAY +'$MANDAY' WHERE TS_ID = '$TS_ID'";
                $result = $conn->query($sql);
+               echo "<script>
+                        window.location.href ='?controller=timesheet&action=myTimesheet&staff_id=$STAFF_ID&m=$m&y=$y';
+                    </script>";
            }
            else{
-
+                
                 $message = "Duplicate date, You have to change the new date or delete your old detail";
-                echo "<script type = 'text/javascript'>alert('$message');</script>";
-                return ;
+                echo "<script type = 'text/javascript'>alert('$message');
+                        window.location.href ='?controller=timesheet&action=myTimesheet&staff_id=$STAFF_ID&m=$m&y=$y';
+                    </script>";
            }
         //        if($conn_error){
         //        echo("Error description: " . $mysqli -> error);
@@ -113,6 +118,12 @@
         $sql ="UPDATE `log` SET `TOTAL_MANDAY`= TOTAL_MANDAY +'$MANDAY' WHERE TS_ID = '$TS_ID'";
         $result = $conn->query($sql);
         
+        $m = substr($LDATE,5,2) ;
+        $y = substr($LDATE,0,4) ;
+        echo "<script>
+                        window.location.href ='?controller=timesheet&action=myTimesheet&staff_id=$STAFF_ID&m=$m&y=$y';
+                    </script>";
+
         require("connection_close.php");
         return ;
 
@@ -167,6 +178,12 @@
             $sql="DELETE FROM `log` WHERE  TS_ID = '$TS_ID'";
             $result=$conn->query($sql);
         }
+
+        $m = substr($ldate,5,2) ;
+        $y = substr($ldate,0,4) ;
+        echo "<script>
+                        window.location.href ='?controller=timesheet&action=myTimesheet&staff_id=$STAFF_ID&m=$m&y=$y';
+                    </script>";
 
         require("connection_close.php");
         return ;
