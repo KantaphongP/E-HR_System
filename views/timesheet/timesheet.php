@@ -396,9 +396,9 @@ tr:nth-child(even) {
                 <p>Project : <?php echo "Derndao BTH"?></p>
                 <p>Team : <?php echo "Funtional"?></p>
 
-                <p>Details Of Service : <input type ="text" name="DOS"></p>
-                <p>Mandays : <input type ="text" name="MANDAY"></p>
-                <p>Notes : <input type ="text"name="NOTE"></p>
+                <p>Details Of Service : <input type ="text" name="DOS" id="DOD"></p>
+                <p>Mandays : <input type ="text" name="MANDAY" id="DOD"></p>
+                <p>Notes : <input type ="text"name="NOTE" id="DOD"></p>
                 
                 </div>
                 <div class="insertbutton">
