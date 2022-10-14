@@ -99,8 +99,37 @@ body{
     <div class="allapp">
         <div class="mytimesheet">
             <a href =?controller=timesheet&action=myTimesheet&staff_id=STF02>My Timesheet</a>
+            <button class="mybutton" id="mybutton" >My Timesheet</button>
         </div>
     </div>
-
+    <script>
+        const date = new Date();
+        var m =date.getMonth()+1 ;
+        var y =date.getFullYear() ;
+        const renderCalendar = () => {
+        const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+            ];
+        
+        //document.querySelector(".mytimesheet p").innerHTML = m;
+        //document.querySelector(".mytimesheet h").innerHTML = y;
+        }
+        document.querySelector(".mybutton").addEventListener("click", () => {
+            href ='?controller=timesheet&action=myTimesheet&staff_id=STF02';
+            location.href = this.href+'&m='+m +'&y='+y ;
+        });
+        renderCalendar();
+    </script>
     </body>
 </html>

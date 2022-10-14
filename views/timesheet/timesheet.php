@@ -340,7 +340,6 @@ tr:nth-child(even) {
                 <tr><th>Date</th><th>Mandays</th><th>Details Of Service</th><th>Detail</th><th>Edit</th></tr>
                 <?php foreach($log_list as $log)
                 {
-                    
                     echo "
                     <tr><td>$log->ldate</td>
                     <td>$log->manday</td>
@@ -441,7 +440,6 @@ tr:nth-child(even) {
         document.querySelector(".month h1").innerHTML = months[date.getMonth()];
         document.querySelector(".func a").innerHTML = date.getMonth()+1 ;
         document.querySelector(".month p").innerHTML = date.getFullYear() ;
-       
         }
 
         var datestring = date.getFullYear() +"-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2) ;
@@ -460,14 +458,6 @@ tr:nth-child(even) {
             if (date.getMonth() = 12) date.setYear(date.getFullYear()+1) ;
             renderCalendar();
         });
-
-        
-
-        
-
-        
-      
-
         renderCalendar();
     </script>
     
