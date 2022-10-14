@@ -422,6 +422,10 @@ tr:nth-child(even) {
         })
 
         const date = new Date();
+        var m = "<?php echo $month; ?>" ; 
+        var y = "<?php echo $year; ?>" ;
+        date.setMonth(m-1) ;
+        date.setYear(y) ;
         const renderCalendar = () => {
         const months = [
             "January",
@@ -437,8 +441,8 @@ tr:nth-child(even) {
             "November",
             "December",
             ];
+        
         document.querySelector(".month h1").innerHTML = months[date.getMonth()];
-        document.querySelector(".func a").innerHTML = date.getMonth()+1 ;
         document.querySelector(".month p").innerHTML = date.getFullYear() ;
         }
 
@@ -448,10 +452,20 @@ tr:nth-child(even) {
         document.querySelector(".prev").addEventListener("click", () => {
             var d = date.setMonth(date.getMonth() - 1);
             if (d = 0) date.setYear(date.getFullYear()-1) ;
+
+            var m =date.getMonth()+1 ;
+            var y =date.getFullYear() ;
+            href ='?controller=timesheet&action=myTimesheet&staff_id=STF02';
+            location.href = this.href+'&m='+m +'&y='+y ;
+
             renderCalendar();
         });
         document.querySelector(".next").addEventListener("click", () => {
             date.setMonth(date.getMonth() + 1);
+            var m =date.getMonth()+1 ;
+            var y =date.getFullYear() ;
+            href ='?controller=timesheet&action=myTimesheet&staff_id=STF02';
+            location.href = this.href+'&m='+m +'&y='+y ;
             renderCalendar();
         });
         document.querySelector(".next").addEventListener("click", () => {
