@@ -472,6 +472,24 @@ tr:nth-child(even) {
             if (date.getMonth() = 12) date.setYear(date.getFullYear()+1) ;
             renderCalendar();
         });
+
+        document.querySelector(".insbutton").addEventListener("click", () => {
+            var m =date.getMonth()+1 ;
+            var y =date.getFullYear() ;
+            href ='?controller=timesheet&action=myTimesheet&staff_id=STF02';
+            location.href = this.href+'&m='+m +'&y='+y ;
+            renderCalendar();
+        });
+
+        document.querySelector(".ccbutton").addEventListener("click", () => {
+            var m =date.getMonth()+1 ;
+            var y =date.getFullYear() ;
+            href ='?controller=timesheet&action=myTimesheet&staff_id=STF02';
+            location.href = this.href+'&m='+m +'&y='+y ;
+            renderCalendar();
+        });
+
+
         renderCalendar();
     </script>
     
