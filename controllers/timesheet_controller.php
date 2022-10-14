@@ -5,7 +5,7 @@
         public function myTimesheet()
         {
             $staff_id = $_GET['staff_id'];
-            $log_list = log::getAll($staff_id);
+            $month = $_GET['m'];
             $year = $_GET['y'];
             $log_list = log_detail::getAll($staff_id,$month,$year);
             $staff_row = Staff::get($staff_id);
