@@ -84,7 +84,6 @@
            }      
            else{
 
-            
                 $message = "Duplicate date, You have to change the new date or delete your old detail";
                 echo "<script type = 'text/javascript'>alert('$message');</script>";
            }     
