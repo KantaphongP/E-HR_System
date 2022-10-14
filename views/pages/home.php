@@ -126,7 +126,7 @@ body{
         //document.querySelector(".mytimesheet h").innerHTML = y;
         }
         document.querySelector(".mybutton").addEventListener("click", () => {
-            href ='?controller=timesheet&action=myTimesheet&staff_id=STF01';
+            href ='?controller=timesheet&action=myTimesheet&staff_id=STF02';
             location.href = this.href+'&m='+m +'&y='+y ;
         });
         renderCalendar();

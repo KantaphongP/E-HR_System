@@ -337,14 +337,13 @@ tr:nth-child(even) {
             </div>
             <div class ="table" style="position: relative";>
                 <table style="width: 100%">
-                <tr><th>Date</th><th>Mandays</th><th>Details Of Service</th><th>Detail</th><th>Edit</th></tr>
+                <tr><th>Date</th><th>Mandays</th><th>Details Of Service</th><th>Edit</th></tr>
                 <?php foreach($log_list as $log)
                 {
                     echo "
                     <tr><td>$log->ldate</td>
                     <td>$log->manday</td>
                     <td>$log->detail</td>
-                    <td><button>detail</button></td>
                     <td><button>Edit</button></td>
                     </tr>";
                 }
@@ -383,9 +382,10 @@ tr:nth-child(even) {
     </div>
     <div class ="popup">
         <div class="popup-content">
+            <button class ="ccbutton" id="ccbutton" >cancel</button>
             <form method="get" action="">
                 <div class="head">
-                <h>Insert Work Log</h>
+                    <h>Insert Work Log</h>
                 </div>
                 <div class="create">
                 
@@ -402,8 +402,7 @@ tr:nth-child(even) {
                 
                 </div>
                 <div class="insertbutton">
-                    <input type="hidden" name= "controller" value="timesheet"/>
-                    <button class ="ccbutton" id="ccbutton" name ="action" value ="myTimesheet">cancel</button>
+                    
                     <input type="hidden" name="staff_id" value = "<?php echo $staff_id; ?>"/>
                     <button class ="insbutton" id="insbutton" type="submit" name="action" value="addTimesheet">insert</button>
                 </div>
@@ -472,7 +471,6 @@ tr:nth-child(even) {
             if (date.getMonth() = 12) date.setYear(date.getFullYear()+1) ;
             renderCalendar();
         });
-
         document.querySelector(".insbutton").addEventListener("click", () => {
             var m =date.getMonth()+1 ;
             var y =date.getFullYear() ;
@@ -480,7 +478,6 @@ tr:nth-child(even) {
             location.href = this.href+'&m='+m +'&y='+y ;
             renderCalendar();
         });
-
         document.querySelector(".ccbutton").addEventListener("click", () => {
             var m =date.getMonth()+1 ;
             var y =date.getFullYear() ;
@@ -488,6 +485,8 @@ tr:nth-child(even) {
             location.href = this.href+'&m='+m +'&y='+y ;
             renderCalendar();
         });
+        
+        
 
 
         renderCalendar();
