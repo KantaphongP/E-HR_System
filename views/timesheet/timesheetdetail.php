@@ -387,7 +387,7 @@ tr:nth-child(even) {
                 </div>
                 <div class="create">
                 
-                <p>Date :<input type ="date" name="DOD" id = "DOD" value = "<?php echo $log_detail->ldate; ?>"></p></p>
+                <p>Date :<input type ="date" name="DOD" id = "DOD" value = "<?php echo $log_detail->ldate; ?>"></p>
                 <p>Timesheet Information</p>
                 <p>Timesheet ID : <?php echo $ts_id;?></p>
                 <p>Name : <?php echo $staff_row->S_FNAME." ".$staff_row->S_LNAME?></p>

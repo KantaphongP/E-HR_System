@@ -194,6 +194,7 @@ tr:nth-child(even) {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    
 }
 .total {
     width : 45%;
@@ -349,7 +350,9 @@ tr:nth-child(even) {
                 </table>
             </div>
         </div>
-        <div class="sum">
+       
+    </div>
+    <div class="sum">
             <div class="total">
                 <div class="tot">
                     <div class ="tt">
@@ -376,7 +379,6 @@ tr:nth-child(even) {
                 </div>
             </div>
             
-        </div>
     </div>
     <div class ="popup">
         <div class="popup-content">
@@ -387,16 +389,16 @@ tr:nth-child(even) {
                 </div>
                 <div class="create">
                 
-                <p>Date :<input type ="date" name="DOD" id = "DOD"></p></p>
+                <p>Date :<input type ="date" name="DOD" id = "DOD" require></p></p>
                 <p>Timesheet Information</p>
                 <p>Timesheet ID : <?php echo $log_month_row->TS_ID?></p>
                 <p>Name : <?php echo $staff_row->S_FNAME." ".$staff_row->S_LNAME?></p>
                 <p>Project : <?php echo $staff_row->PROJ_NAME?></p>
                 <p>Team : <?php echo $staff_row->TEAM_NAME?></p>
 
-                <p>Details Of Service : <input type ="text" name="DOS" id="DOD"></p>
-                <p>Mandays : <input type ="text" name="MANDAY" id="DOD"></p>
-                <p>Notes : <input type ="text"name="NOTE" id="DOD"></p>
+                <p>Details Of Service : <input type ="text" name="DOS" id="DOD" require></p>
+                <p>Mandays : <input type ="text" name="MANDAY" id="DOD" require></p>
+                <p>Notes : <input type ="text"name="NOTE" id="DOD" require></p>
                 
                 </div>
                 <div class="insertbutton">
