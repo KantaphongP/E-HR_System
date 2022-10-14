@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2022 at 08:32 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Generation Time: Oct 14, 2022 at 12:37 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,17 +30,21 @@ SET time_zone = "+00:00";
 CREATE TABLE `log` (
   `TS_ID` varchar(13) NOT NULL,
   `STATUS_ID` int(11) NOT NULL,
-  `STAFF_ID` varchar(5) NOT NULL
+  `STAFF_ID` varchar(5) NOT NULL,
+  `TOTAL_MANDAY` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `log`
 --
 
-INSERT INTO `log` (`TS_ID`, `STATUS_ID`, `STAFF_ID`) VALUES
-('2210P01D01S01', 0, 'STF02'),
-('2211P01D01S01', 0, 'STF02'),
-('2212P01D01S01', 0, 'STF02');
+INSERT INTO `log` (`TS_ID`, `STATUS_ID`, `STAFF_ID`, `TOTAL_MANDAY`) VALUES
+('202201S02', 0, 'STF02', 0),
+('202204S02', 0, 'STF02', 0),
+('202210S01', 0, 'STF01', 3),
+('202210S02', 0, 'STF02', 7),
+('202302S02', 0, 'STF02', 4),
+('202401S02', 0, 'STF02', 2);
 
 -- --------------------------------------------------------
 
@@ -52,19 +56,36 @@ CREATE TABLE `log_detail` (
   `TS_ID` varchar(13) NOT NULL,
   `LDATE` date NOT NULL,
   `MANDAY` float NOT NULL,
-  `DETAIL` text NOT NULL
+  `DETAIL` text NOT NULL,
+  `NOTE` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `log_detail`
 --
 
-INSERT INTO `log_detail` (`TS_ID`, `LDATE`, `MANDAY`, `DETAIL`) VALUES
-('2210P01D01S01', '2022-10-12', 1, 'Work E-HR Project'),
-('2210P01D01S01', '2022-10-13', 1, 'Work E-HR Project'),
-('2210P01D01S01', '2022-10-14', 1, 'Co-op Prepare Presentation '),
-('2210P01D01S01', '2022-10-15', 1, 'Work AI Project'),
-('2210P01D01S01', '2022-10-16', 1, 'Work AI Project');
+INSERT INTO `log_detail` (`TS_ID`, `LDATE`, `MANDAY`, `DETAIL`, `NOTE`) VALUES
+('202201S02', '2022-10-18', 0.5, 'what', ''),
+('202204S02', '2022-04-12', 1, 'NONO', ''),
+('202210S01', '2022-10-14', 1, 'อยากได้สกินมังกือ', 'อยากเล่นๆ'),
+('202210S01', '2022-10-15', 1, 'workwork', 'NONO'),
+('202210S01', '2022-10-16', 1, 'pooooooo', 'momo'),
+('202210S02', '2022-10-12', 1, 'Work E-HR Project', ''),
+('202210S02', '2022-10-13', 1, 'Work E-HR Project', ''),
+('202210S02', '2022-10-14', 1, 'Co-op Prepare Presentation ', ''),
+('202210S02', '2022-10-15', 1, 'Work AI Project', ''),
+('202210S02', '2022-10-16', 1, 'Work AI Project', ''),
+('202210S02', '2022-10-17', 0.5, 'what', ''),
+('202210S02', '2022-10-18', 2, 'Work Project', 'เข้าค่ายลูกเสือ'),
+('202210S02', '2022-10-19', 1, 'Presentation', 'เหนื่อยนะ'),
+('202210S02', '2022-10-20', 1, 'workwork', 'ฟ'),
+('202210S02', '2022-10-21', 1, 'workwork', 'หฟก้ฟกฟห'),
+('202210S02', '2022-10-22', 4, 's', 's'),
+('202302S02', '2023-02-11', 2, 'workwork', 'บ้าหน่า'),
+('202302S02', '2023-02-12', 2, 'workworkwork', 'hohohohohhohhoh'),
+('202302S02', '2023-02-18', 2, 'เข้าาค่ายลูกเสือ', 'NONO'),
+('202401S02', '2024-01-05', 1, 'เล่นเกม', 'เก่งมาก'),
+('202401S02', '2024-01-09', 1, 'workwork', 'hohohohohhohhoh');
 
 -- --------------------------------------------------------
 
@@ -208,7 +229,7 @@ ALTER TABLE `log`
 -- Indexes for table `log_detail`
 --
 ALTER TABLE `log_detail`
-  ADD PRIMARY KEY (`LDATE`),
+  ADD PRIMARY KEY (`TS_ID`,`LDATE`),
   ADD KEY `TS_ID` (`TS_ID`);
 
 --
@@ -241,7 +262,7 @@ ALTER TABLE `status`
 -- Indexes for table `stp`
 --
 ALTER TABLE `stp`
-  ADD PRIMARY KEY (`STAFF_ID`,`TEAM_ID`),
+  ADD PRIMARY KEY (`STAFF_ID`),
   ADD KEY `STAFF_ID` (`STAFF_ID`),
   ADD KEY `TEAM_ID` (`TEAM_ID`);
 
