@@ -37,7 +37,7 @@
              $staff_id = $_GET['staff_id'];
             
 
-             $e = log_detail::addTimesheetDetail($detail,$manday,$note,$staff_id,$ldate);
+             log_detail::addTimesheetDetail($detail,$manday,$note,$staff_id,$ldate);
              TimesheetController::myTimesheet();
         }
     }
