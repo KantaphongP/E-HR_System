@@ -249,7 +249,7 @@ tr:nth-child(even) {
     position : absolute;
     top : 0;
     left: 0;
-    display: none;
+    display: flex;
     justify-content : center;
     align-items: center ;
 }
@@ -342,7 +342,7 @@ tr:nth-child(even) {
                     <tr><td>$log->ldate</td>
                     <td>$log->manday</td>
                     <td>$log->detail</td>
-                    <td><a href=?controller=timesheet&action=myTimesheetDetail&staff_id=$staff_id&m=$month&y=$year&TS_ID=$log_month_row->TS_ID&ldate=$log->ldate>Edit</a></td>
+                    <td><a href=?controller=timesheet&action=myTimesheet&staff_id=$staff_id&m=$month&y=$year&TS_ID=$log_month_row->TS_ID&ldate=$log->ldate>Edit</a></td>
                     </tr>";
                 }
                 ?>

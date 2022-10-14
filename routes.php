@@ -1,7 +1,7 @@
 <?php
 
 
-$controllers = array('pages'=>['home','error'],'timesheet'=>['myTimesheet','addTimesheet']) ; 
+$controllers = array('pages'=>['home','error'],'timesheet'=>['myTimesheet','addTimesheet','myTimesheetDetail']) ; 
 
 
 
