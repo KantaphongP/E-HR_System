@@ -13,7 +13,8 @@ function call($controller ,$action){
         case "pages" : $controller = new PagesController() ; 
                         break ;
 
-        case "timesheet" :  require_once("models/log_detail.php");
+        case "timesheet" :  require_once("models/log.php");
+                            require_once("models/log_detail.php");
                             require_once("./models/staff.php");
                             $controller = new TimesheetController() ; break ;
 

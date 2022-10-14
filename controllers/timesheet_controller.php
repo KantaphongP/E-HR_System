@@ -7,10 +7,10 @@
             $staff_id = $_GET['staff_id'];
             $month = $_GET['m'];
             $year = $_GET['y'];
+           
             $log_list = log_detail::getAll($staff_id,$month,$year);
             $staff_row = Staff::get($staff_id);
-            // echo $staff_row->S_FNAME;
-            // echo $staff_row->S_LNAME;
+            $log_month_row = Log::get($staff_id,$month,$year);
             require_once('./views/timesheet/timesheet.php');
         }
         

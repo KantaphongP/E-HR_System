@@ -23,10 +23,14 @@
     public static function getAll($staff_id,$month,$year)
     {
         //echo $staff_id;
+        if((int)$month < 10){
+            $month = '0'.$month;
+        }
+    
         $TS_ID = substr($year,0,4).substr($month,0,2).substr($staff_id,0,1).substr($staff_id,3,2);
         $logList=[];
         require("connection_connect.php");
-
+        
         $sql="SELECT * FROM `log` NATURAL JOIN log_detail WHERE log.TS_ID = '$TS_ID' ORDER BY log_detail.LDATE";
         $result=$conn->query($sql);
         while($my_row = $result->fetch_assoc())
