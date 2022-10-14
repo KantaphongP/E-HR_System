@@ -98,7 +98,7 @@ body{
     </div>
     <div class="allapp">
         <div class="mytimesheet">
-            <a href =?controller=timesheet&action=myTimesheet&staff_id=STF02>My Timesheet</a>
+            <a href =?controller=timesheet&action=myTimesheet&staff_id=STF01>My Timesheet</a>
             <button class="mybutton" id="mybutton" >My Timesheet</button>
         </div>
     </div>
@@ -126,7 +126,7 @@ body{
         //document.querySelector(".mytimesheet h").innerHTML = y;
         }
         document.querySelector(".mybutton").addEventListener("click", () => {
-            href ='?controller=timesheet&action=myTimesheet&staff_id=STF02';
+            href ='?controller=timesheet&action=myTimesheet&staff_id=STF01';
             location.href = this.href+'&m='+m +'&y='+y ;
         });
         renderCalendar();
