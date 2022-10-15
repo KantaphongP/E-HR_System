@@ -1,6 +1,6 @@
 <style>
 body{
-    font-family : 'Segoe UI Semibold' ;
+    font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     z-index: -1;
 }
 .navbar {
@@ -12,11 +12,16 @@ body{
     background: #BED2E5;
     z-index: 0;
 }
-.navbar a{
+.navbar p{
     position: absolute;
     top : 30% ;
+    left: 5%;
     font-size : 18px;
     color : #477295 ; 
+}
+.navbar .b{
+    position: absolute;
+    top: 30%;
 }
 .navbar ul{
     list-style: none;
@@ -35,7 +40,14 @@ body{
     border : none ;
     background : transparent ; 
     cursor: pointer;
-    
+}
+.navbar .b button {
+    position: absolute;
+    left: 60;
+}
+.navbar .appli{
+    display: flex;
+    justify-content: flex-start;
 }
 .appname {
     position: fixed ;
@@ -178,6 +190,28 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   background: #FFFFFF;
+  border-color : #AEAEAE;
+}
+.table .tb th{
+    position: sticky;
+    top: 0;
+    background-color : #AEAEAE;
+    text-align:center;
+} 
+tbody>tr>:nth-child(3){  
+    text-align:left;
+}
+tbody>tr>:nth-child(1){
+    width: 15% ;      
+    text-align:center;
+}
+tbody>tr>:nth-child(2){
+    width: 15% ;      
+    text-align:center;
+}
+tbody>tr>:nth-child(4){
+    width: 15% ;      
+    text-align:center;
 }
 tr:nth-child(even) {
   background-color: #D6EEEE;
@@ -185,8 +219,8 @@ tr:nth-child(even) {
 .sum {
     display : flex;
     bottom: 2%;
-    width: 80%;
-    height: 15%;
+    width: 75%;
+    height: 10%;
     background: #FFFFFF;
     border-style: solid;
     border-width: 1px;
@@ -194,14 +228,28 @@ tr:nth-child(even) {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    
+}
+.summan {
+    background-color : #fff;
+    width : 200;
+    height : 50;
+    border-radius : 30px;
+    
+}
+.summan a {
+    font-size: 50px;
+    font-weight: 500;
+    color : #368236;
+    position: relative;
+    left: 10%;
+    bottom: 15%;
 }
 .total {
     width : 45%;
     display : flex ;
     justify-content: center ;
-    border-style: solid;
-    border-width: 0 1px 0 0;
-    border-color: #545454;
+    
 }
 .tot {
     display: flex;
@@ -223,25 +271,91 @@ tr:nth-child(even) {
 }
 .total .tt {
     position: relative ;
-    display: grid;
+    margin: 12 50 0 0;
 }
 .status {
     width : 35%;
     display : flex;
     justify-content: center ;
-    border-style: solid;
-    border-width: 0 1px 0 0;
-    border-color: #545454;
+    
 }
 .status .tt{
     position: relative ;
-    display: grid;
+    margin : 13 50 0 0;
+}
+.appr {
+    background-color : #fff;
+    border : solid;
+    border-width : 2px;
+    border-color: #ccc;
+    width : 200;
+    height : 50;
+    border-radius : 30px;
+}
+.appr a {
+    font-size: 20px;
+    font-weight: 500;
+    color : #9C2500;
+    position: relative;
+    left: 10%;
+    top: 20%;
 }
 .submit {
     width : 20%;
     display : flex ; 
     justify-content: center;
 }
+.sub {
+  appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+.sub:hover {
+  background-color: #F3F4F6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+.sub:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+.sub:active {
+  background-color: #EDEFF2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+.sub:focus {
+  outline: 1px transparent;
+}
+.sub:before {
+  display: none;
+}
+.sub:-webkit-details-marker {
+  display: none;
+}
+
 .popup {
     background : rgba(0, 0, 0, 0.6);
     width : 100%;
@@ -254,14 +368,66 @@ tr:nth-child(even) {
     align-items: center ;
 }
 .popup-content{
-    height : 50%;
+    height : 45%;
     width : 50%;
     background : #fff;
-    padding : 20px;
+    padding : 10px 20px 20px 20px;
     border-radius: 5px;
     position: relative;
 }
 
+.popup .head{
+    position: relative;
+    left: 0;
+    
+    width : 100%;
+    height : 10%;
+    border : solid ;
+    border-width : 0 0 1px 0 ;
+    border-color : #2F3C48;
+    font-size: 25px;
+    font-weight: 400;
+    text-align : center ;
+    color : #2F3C48;
+
+}
+.popup .bot{
+    position: absolute;
+    left: 0;
+    bottom : 0 ;
+    width : 100%;
+    height : 8%;
+    background-color : #2F3C48;
+    border-radius : 0 0 5px 5px;
+    font-size: 25px;
+    font-weight: 400;
+    text-align : center ;
+    color : #2F3C48;
+
+}
+.ccbutton { 
+    position : absolute;
+    right :5;
+    border : none;
+    background-color : transparent;
+    color : #2F3C48;
+    cursor: pointer;
+}
+.insertbutton {
+    position: absolute;
+    right: 2%;
+    bottom: 2%;
+    z-index: 2;
+}
+.insbutton {
+   
+    font-size : 15px;
+    color : #ccc ; 
+    border : none ;
+    background : transparent ; 
+    cursor: pointer;
+    z-index : 2;
+}
 </style>
 <html>
     <header>
@@ -270,8 +436,13 @@ tr:nth-child(even) {
     <body style="background-color:BED2E5;">
     <div class="navbar">
         <div class="appli">
-
-            <a style="margin : 0 0 0 1%">My Timesheet</a>
+            <div class="b">
+                <button class ="back"><img src="leftarrow.png" height ="25" width="25" /></button>
+            </div>
+            <div class="n">
+                <p style="margin : 0 0 0 1%">My Timesheet</p>
+            </div>
+            
         </div>
         <ul>
             <li><button class="button"><img src="search.png" height ="25" width="25" /></li>
@@ -334,62 +505,65 @@ tr:nth-child(even) {
                 <button class="button" id="button">Insert Log <img src="insert.png" height ="15" width="15" margin="0 0 0 1%"/></button>
             </div>
             <div class ="table" style="position: relative" id="tablebutton";>
-                <table style="width: 100%">
-                <tr><th>Date</th><th>Mandays</th><th>Details Of Service</th><th>Edit</th></tr>
-                <?php foreach($log_list as $log)
-                {
+                <div class="tb" style="overflow-y: scroll ;position: relative;height: 400px; border = solid ; boder-width = 1px">
+                    <table style="width: 100%">
+                    <tr><th>Date</th><th>Mandays</th><th>Details Of Service</th><th>Edit</th></tr>
+                    <?php foreach($log_list as $log)
+                    {
                     echo "
                     <tr><td>$log->ldate</td>
                     <td>$log->manday</td>
-                    <td>$log->detail</td>
-                    <td><a href=?controller=timesheet&action=myTimesheet&staff_id=$staff_id&m=$month&y=$year&TS_ID=$log_month_row->TS_ID&ldate=$log->ldate>Edit</a></td>
+                    <td >$log->detail</td>
+                    <td><a href=?controller=timesheet&action=myTimesheetDetail&staff_id=$staff_id&m=$month&y=$year&TS_ID=$log_month_row->TS_ID&ldate=$log->ldate>Edit</a></td>
                     </tr>";
-                }
-                ?>
+                    }
+                    ?>
                 </table>
+                </div>
             </div>
         </div>
-        <div class="sum">
+       
+    </div>
+    <div class="sum">
             <div class="total">
                 <div class="tot">
                     <div class ="tt">
-                        <a>Total Mandays : </a>                
+                        <a>Total Mandays  </a>                
                     </div>
                     <div class ="summan">
-                    <?php echo $log_month_row->TOTAL_MANDAY ?>
+                        <a><?php echo $log_month_row->TOTAL_MANDAY ?></a>
                     </div>
                 </div>
             </div>
             <div class="status">
                 <div class="stat">
                     <div class ="tt">
-                        <a>Status : </a>
+                        <a>Status  </a>
                     </div>
                     <div class ="appr">
-                        <?php echo $log_month_row->STATUS_NAME ?>
+                        <a><?php echo $log_month_row->STATUS_NAME ?></a>
                     </div>
                 </div>
             </div>
             <div class="submit">
                 <div class ="tt">
-                    <button>submit</button>
+                    <button class="sub">submit</button>
                 </div>
             </div>
             
-        </div>
     </div>
     <div class ="popup">
         <div class="popup-content">
-            <button class ="ccbutton" id="ccbutton" >cancel</button>
+            <button class ="ccbutton" id="ccbutton" >X</button>
+            <div class="head">
+                <h>Insert Work Log</h> 
+            </div>
             <form method="get" action="">
-                <div class="head">
-                    <h>Insert Work Log</h>
-                </div>
                 <div class="create">
                 
                 <p>Date :<input type ="date" name="DOD" id = "DOD" value = "<?php echo $log_detail->ldate; ?>"></p>
                 <p>Timesheet Information</p>
-                <p>Timesheet ID : <?php echo $ts_id;?></p>
+                <p>Timesheet ID : <?php echo $log_month_row->TS_ID?></p>
                 <p>Name : <?php echo $staff_row->S_FNAME." ".$staff_row->S_LNAME?></p>
                 <p>Project : <?php echo $staff_row->PROJ_NAME?></p>
                 <p>Team : <?php echo $staff_row->TEAM_NAME?></p>
@@ -398,8 +572,9 @@ tr:nth-child(even) {
                 <p>Mandays : <input type ="text" name="MANDAY" id="DOD" value ="<?php echo $log_detail->manday?>"></p>
                 <p>Notes : <input type ="text"name="NOTE" id="DOD" value ="<?php echo $log_detail->note?>"></p>
                 
+                
                 </div>
-                <div class="insertbutton">
+                <div class="insertbutton" id ="insertbutton">
                     <input type="hidden" name= "controller" value="timesheet"/>
                     <input type="hidden" name="m" value = "<?php echo $month; ?>"/>
                     <input type="hidden" name="y" value = "<?php echo $year; ?>"/>
@@ -409,20 +584,21 @@ tr:nth-child(even) {
                     <button class ="insbutton" id="insbutton" type="submit" name="action" value="deleteTimesheet">Delete</button>
                 </div>
             </form>
+            <div class="bot">
+                <h>Insert Work Log</h> 
+            </div>
         </div>
     </div>
+    
     <script>
         document.getElementById("button").addEventListener("click", function(){
             document.querySelector(".popup").style.display="flex" ;
         })
         document.getElementById("ccbutton").addEventListener("click", function(){
             document.querySelector(".popup").style.display="none" ;
-        })
+        }) 
         document.getElementById("insbutton").addEventListener("click", function(){
             document.querySelector(".popup").style.display="none" ;
-        })
-        document.querySelector(".table a").addEventListener("click", function(){
-            document.querySelector(".popup").style.display="flex" ;
         })
 
         const date = new Date();
@@ -449,18 +625,23 @@ tr:nth-child(even) {
         document.querySelector(".month h1").innerHTML = months[date.getMonth()];
         document.querySelector(".month p").innerHTML = date.getFullYear() ;
         }
-
         var datestring = date.getFullYear() +"-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2) ;
-        DOD.value = datestring
         
+
+        document.querySelector(".back").addEventListener("click", () => {
+            href ='?controller=pages&action=home';
+            location.href = this.href
+        });
+
         document.querySelector(".prev").addEventListener("click", () => {
             var d = date.setMonth(date.getMonth() - 1);
             if (d = 0) date.setYear(date.getFullYear()-1) ;
-
             var m =date.getMonth()+1 ;
             var y =date.getFullYear() ;
             href ='?controller=timesheet&action=myTimesheet&staff_id=STF02';
             location.href = this.href+'&m='+m +'&y='+y ;
+
+        
 
             renderCalendar();
         });
@@ -483,6 +664,14 @@ tr:nth-child(even) {
             location.href = this.href+'&m='+m +'&y='+y ;
             renderCalendar();
         });
+
+        document.querySelector(".insertbutton").addEventListener("click", () => {
+            var m =date.getMonth()+1 ;
+            var y =date.getFullYear() ;
+            href ='?controller=timesheet&action=myTimesheet&staff_id=sid';
+            location.href = this.href+'&m='+m +'&y='+y ;
+            renderCalendar();
+        });
         
         
 
@@ -492,3 +681,4 @@ tr:nth-child(even) {
     
     </body>
 </html>
+

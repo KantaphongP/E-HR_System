@@ -218,9 +218,9 @@ tr:nth-child(even) {
 }
 .sum {
     display : flex;
-    bottom: 0%;
-    width: 80%;
-    height: 15%;
+    bottom: 2%;
+    width: 75%;
+    height: 10%;
     background: #FFFFFF;
     border-style: solid;
     border-width: 1px;
@@ -231,17 +231,25 @@ tr:nth-child(even) {
     
 }
 .summan {
+    background-color : #fff;
+    width : 200;
+    height : 50;
+    border-radius : 30px;
+    
+}
+.summan a {
     font-size: 50px;
     font-weight: 500;
     color : #368236;
+    position: relative;
+    left: 10%;
+    bottom: 15%;
 }
 .total {
     width : 45%;
     display : flex ;
     justify-content: center ;
-    border-style: solid;
-    border-width: 0 1px 0 0;
-    border-color: #545454;
+    
 }
 .tot {
     display: flex;
@@ -263,22 +271,23 @@ tr:nth-child(even) {
 }
 .total .tt {
     position: relative ;
-    margin: 25 50 0 0;
+    margin: 12 50 0 0;
 }
 .status {
     width : 35%;
     display : flex;
     justify-content: center ;
-    border-style: solid;
-    border-width: 0 1px 0 0;
-    border-color: #545454;
+    
 }
 .status .tt{
     position: relative ;
-    margin : 10 50 0 0;
+    margin : 13 50 0 0;
 }
 .appr {
-    background-color : #9C2500;
+    background-color : #fff;
+    border : solid;
+    border-width : 2px;
+    border-color: #ccc;
     width : 200;
     height : 50;
     border-radius : 30px;
@@ -286,14 +295,67 @@ tr:nth-child(even) {
 .appr a {
     font-size: 20px;
     font-weight: 500;
-    color : #fff;
-    text-align : center ;
+    color : #9C2500;
+    position: relative;
+    left: 10%;
+    top: 20%;
 }
 .submit {
     width : 20%;
     display : flex ; 
     justify-content: center;
 }
+.sub {
+  appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+.sub:hover {
+  background-color: #F3F4F6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+.sub:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+.sub:active {
+  background-color: #EDEFF2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+.sub:focus {
+  outline: 1px transparent;
+}
+.sub:before {
+  display: none;
+}
+.sub:-webkit-details-marker {
+  display: none;
+}
+
 .popup {
     background : rgba(0, 0, 0, 0.6);
     width : 100%;
@@ -306,33 +368,62 @@ tr:nth-child(even) {
     align-items: center ;
 }
 .popup-content{
-    height : 50%;
+    height : 45%;
     width : 50%;
     background : #fff;
-    padding : 20px;
-    border-radius: 5px;
-    position: relative;
-}
-.popup2 {
-    background : rgba(0, 0, 0, 0.6);
-    width : 100%;
-    height : 100%;
-    position : absolute;
-    top : 0;
-    left: 0;
-    display: flex;
-    justify-content : center;
-    align-items: center ;
-}
-.popup2-content{
-    height : 50%;
-    width : 50%;
-    background : #fff;
-    padding : 20px;
+    padding : 10px 20px 20px 20px;
     border-radius: 5px;
     position: relative;
 }
 
+.popup .head{
+    position: relative;
+    left: 0;
+    
+    width : 100%;
+    height : 10%;
+    border : solid ;
+    border-width : 0 0 1px 0 ;
+    border-color : #2F3C48;
+    font-size: 25px;
+    font-weight: 400;
+    text-align : center ;
+    color : #2F3C48;
+
+}
+.popup .bot{
+    position: absolute;
+    left: 0;
+    bottom : 0 ;
+    width : 100%;
+    height : 8%;
+    background-color : #2F3C48;
+    border-radius : 0 0 5px 5px;
+    font-size: 25px;
+    font-weight: 400;
+    text-align : center ;
+    color : #2F3C48;
+
+}
+.ccbutton { 
+    position : absolute;
+    right :5;
+    border : none;
+    background-color : transparent;
+    color : #2F3C48;
+    cursor: pointer;
+}
+.insbutton {
+    position: absolute;
+    right : 2%;
+    bottom : 2%;
+    font-size : 15px;
+    color : #ccc ; 
+    border : none ;
+    background : transparent ; 
+    cursor: pointer;
+    z-index : 2;
+}
 </style>
 <html>
     <header>
@@ -436,7 +527,7 @@ tr:nth-child(even) {
                         <a>Total Mandays  </a>                
                     </div>
                     <div class ="summan">
-                        <?php echo $log_month_row->TOTAL_MANDAY ?>
+                        <a><?php echo $log_month_row->TOTAL_MANDAY ?></a>
                     </div>
                 </div>
             </div>
@@ -446,36 +537,36 @@ tr:nth-child(even) {
                         <a>Status  </a>
                     </div>
                     <div class ="appr">
-                        <a><?php echo $log_month_row->STATUS_NAME ?><a>
+                        <a><?php echo $log_month_row->STATUS_NAME ?></a>
                     </div>
                 </div>
             </div>
             <div class="submit">
                 <div class ="tt">
-                    <button>submit</button>
+                    <button class="sub">submit</button>
                 </div>
             </div>
             
     </div>
     <div class ="popup">
         <div class="popup-content">
-            <button class ="ccbutton" id="ccbutton" >cancel</button>
+            <button class ="ccbutton" id="ccbutton" >X</button>
+            <div class="head">
+                <h>Insert Work Log</h> 
+            </div>
             <form method="get" action="">
-                <div class="head">
-                    <h>Insert Work Log</h>
-                </div>
                 <div class="create">
                 
-                <p>Date :<input type ="date" name="DOD" id = "DOD" require></p></p>
+                <p>Date <input type ="date" name="DOD" id = "DOD" value =""></p></p>
                 <p>Timesheet Information</p>
                 <p>Timesheet ID : <?php echo $log_month_row->TS_ID?></p>
                 <p>Name : <?php echo $staff_row->S_FNAME." ".$staff_row->S_LNAME?></p>
                 <p>Project : <?php echo $staff_row->PROJ_NAME?></p>
                 <p>Team : <?php echo $staff_row->TEAM_NAME?></p>
 
-                <p>Details Of Service : <input type ="text" name="DOS" id="DOD" require></p>
-                <p>Mandays : <input type ="text" name="MANDAY" id="DOD" require></p>
-                <p>Notes : <input type ="text"name="NOTE" id="DOD" require></p>
+                <p>Details Of Service  <input type ="text" name="DOS" id="DOD" required></p>
+                <p>Mandays  <input type ="text" name="MANDAY" id="DOD" required></p>
+                <p>Notes  <input type ="text" name="NOTE" id="DOD" size="60" required></p>
                 
                 </div>
                 <div class="insertbutton" id ="insertbutton">
@@ -483,19 +574,22 @@ tr:nth-child(even) {
                     <input type="hidden" name="staff_id" value = "<?php echo $staff_id; ?>"/>
                     <input type="hidden" name="m" value = "<?php echo $month; ?>"/>
                     <input type="hidden" name="y" value = "<?php echo $year; ?>"/>
-                    <button class ="insbutton" id="insbutton" type="submit" name="action" value="addTimesheet">insert</button>
+                    <button class ="insbutton" id="insbutton" type="submit" name="action" value="addTimesheet">INSERT</button>
                 </div>
             </form>
+            <div class="bot">
+                <h>Insert Work Log</h> 
+            </div>
         </div>
     </div>
+    
     <script>
         document.getElementById("button").addEventListener("click", function(){
             document.querySelector(".popup").style.display="flex" ;
         })
         document.getElementById("ccbutton").addEventListener("click", function(){
             document.querySelector(".popup").style.display="none" ;
-        })
-        
+        }) 
         document.getElementById("insbutton").addEventListener("click", function(){
             document.querySelector(".popup").style.display="none" ;
         })
@@ -524,10 +618,10 @@ tr:nth-child(even) {
         document.querySelector(".month h1").innerHTML = months[date.getMonth()];
         document.querySelector(".month p").innerHTML = date.getFullYear() ;
         }
-
         var datestring = date.getFullYear() +"-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2) ;
-        DOD.value = datestring
-        
+        const dateControl = document.querySelector('input[type="date"]');
+        dateControl.value = datestring;
+
         document.querySelector(".back").addEventListener("click", () => {
             href ='?controller=pages&action=home';
             location.href = this.href
@@ -536,11 +630,12 @@ tr:nth-child(even) {
         document.querySelector(".prev").addEventListener("click", () => {
             var d = date.setMonth(date.getMonth() - 1);
             if (d = 0) date.setYear(date.getFullYear()-1) ;
-
             var m =date.getMonth()+1 ;
             var y =date.getFullYear() ;
             href ='?controller=timesheet&action=myTimesheet&staff_id=STF02';
             location.href = this.href+'&m='+m +'&y='+y ;
+
+        
 
             renderCalendar();
         });
@@ -579,3 +674,4 @@ tr:nth-child(even) {
     
     </body>
 </html>
+

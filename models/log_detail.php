@@ -182,7 +182,7 @@
         $m = substr($ldate,5,2) ;
         $y = substr($ldate,0,4) ;
         echo "<script>
-                        window.location.href ='?controller=timesheet&action=myTimesheet&staff_id=$STAFF_ID&m=$m&y=$y';
+                        window.location.href ='?controller=timesheet&action=myTimesheet&staff_id=$staff_id&m=$m&y=$y';
                     </script>";
 
         require("connection_close.php");
