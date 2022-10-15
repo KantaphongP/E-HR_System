@@ -12,11 +12,16 @@ body{
     background: #BED2E5;
     z-index: 0;
 }
-.navbar a{
+.navbar p{
     position: absolute;
-    top : 30% ;
+    top : 35% ;
+    left: 5%;
     font-size : 18px;
     color : #477295 ; 
+}
+.navbar .b{
+    position: absolute;
+    top: 30%;
 }
 .navbar ul{
     list-style: none;
@@ -35,7 +40,10 @@ body{
     border : none ;
     background : transparent ; 
     cursor: pointer;
-    
+}
+.navbar .b button {
+    position: absolute;
+    left: 60;
 }
 .appname {
     position: fixed ;
@@ -43,18 +51,20 @@ body{
     width: 100%;
     height: 8%;
     left: 0px;
-    background: #EFF4F9;
+    background: #BED2E5;
     z-index: 0;
     
 }
 .appname a {
     position: absolute;
-    left: 50%;
+    left: 8%;
     top: 50%; 
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
 
+    font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     font-size : 30px;
-    color : #477295 ; 
+    font-weight: 400;
+    color : #514C4C ; 
 }
 .allapp{
     display : flex ;
@@ -64,16 +74,197 @@ body{
     width: 100%;
     height: 84%;
     left: 0px;
-    background: #FFFFFF;
+    background: #BED2E5;
 }
-.mytimesheet {
-    border :solid;
-    border-width : 1 px;
-    width: 20%;
-    height: 20%;
-    left: 0px;
-    background: #FFFFFF;
-    cursor : pointer;
+.mybutton {
+  height : 150px;
+  width : 150px;
+  background-color: #E8E6E6;
+  border-radius: 2px;
+  border: 0;
+  box-shadow: rgba(1,60,136,.5) 0 -1px 3px 0 inset,rgba(0,44,97,.1) 0 3px 6px 0;
+  box-sizing: border-box;
+  color: #514C4C;
+  cursor: pointer;
+  display: inherit;
+  font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+  padding: 16px 20px;
+  position: relative;
+  text-align: left;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  transition: all .2s cubic-bezier(.22, .61, .36, 1);
+}
+.mybutton:hover {
+  background-color: #C1CCD8;
+  transform: translateY(-2px);
+}
+@media (min-width: 768px) {
+  .mybutton {
+    min-width: 150px;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+  }
+}
+.mybutton a {
+    position : absolute;
+    top : 10%;
+}
+.mybutton p {
+    position : absolute;
+    top : 15%;
+    color : #7E7C7C;
+    font-size: 13;
+}
+.mybutton2 {
+  height : 150px;
+  width : 150px;
+  background-color: #E8E6E6;
+  border-radius: 2px;
+  border: 0;
+  box-shadow: rgba(1,60,136,.5) 0 -1px 3px 0 inset,rgba(0,44,97,.1) 0 3px 6px 0;
+  box-sizing: border-box;
+  color: #514C4C;
+  cursor: pointer;
+  display: inherit;
+  font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+  padding: 16px 20px;
+  position: relative;
+  text-align: left;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  transition: all .2s cubic-bezier(.22, .61, .36, 1);
+}
+.mybutton2:hover {
+  background-color: #C1CCD8;
+  transform: translateY(-2px);
+}
+@media (min-width: 768px) {
+  .mybutton2 {
+    min-width: 150px;
+    position: absolute;
+    top: 5%;
+    left: 15%;
+  }
+}
+.mybutton2 a {
+    position : absolute;
+    top : 10%;
+}
+.mybutton2 p {
+    position : absolute;
+    top : 15%;
+    color : #7E7C7C;
+    font-size: 13;
+}
+
+.mybutton3 {
+  height : 150px;
+  width : 150px;
+  background-color: #E8E6E6;
+  border-radius: 2px;
+  border: 0;
+  box-shadow: rgba(1,60,136,.5) 0 -1px 3px 0 inset,rgba(0,44,97,.1) 0 3px 6px 0;
+  box-sizing: border-box;
+  color: #514C4C;
+  cursor: pointer;
+  display: inherit;
+  font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+  padding: 16px 20px;
+  position: relative;
+  text-align: left;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  transition: all .2s cubic-bezier(.22, .61, .36, 1);
+}
+.mybutton3:hover {
+  background-color: #C1CCD8;
+  transform: translateY(-2px);
+}
+@media (min-width: 768px) {
+  .mybutton3 {
+    min-width: 150px;
+    position: absolute;
+    top: 5%;
+    left: 25%;
+  }
+}
+.mybutton3 a {
+    position : absolute;
+    top : 10%;
+}
+.mybutton3 p {
+    position : absolute;
+    top : 15%;
+    color : #7E7C7C;
+    font-size: 13;
+}
+
+.mybutton4 {
+  height : 150px;
+  width : 150px;
+  background-color: #E8E6E6;
+  border-radius: 2px;
+  border: 0;
+  box-shadow: rgba(1,60,136,.5) 0 -1px 3px 0 inset,rgba(0,44,97,.1) 0 3px 6px 0;
+  box-sizing: border-box;
+  color: #514C4C;
+  cursor: pointer;
+  display: inherit;
+  font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+  padding: 16px 20px;
+  position: relative;
+  text-align: left;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  transition: all .2s cubic-bezier(.22, .61, .36, 1);
+}
+.mybutton4:hover {
+  background-color: #C1CCD8;
+  transform: translateY(-2px);
+}
+@media (min-width: 768px) {
+  .mybutton4 {
+    min-width: 150px;
+    position: absolute;
+    top: 5%;
+    left: 35%;
+  }
+}
+.mybutton4 a {
+    position : absolute;
+    top : 10%;
+}
+.mybutton4 p {
+    position : absolute;
+    top : 15%;
+    color : #7E7C7C;
+    font-size: 13;
 }
 
 </style>
@@ -85,7 +276,13 @@ body{
 
     <div class="navbar">
         <div class="appli">
-                <a style="margin : 0 0 0 1%">Home</a>
+            <div class="b">
+                <button class ="back"><img src="home.png" height ="30" width="30" /></button>
+            </div>
+            <div class="n">
+                <p style="margin : 0 0 0 1%">Home</p>
+            </div>
+            
         </div>
         <ul>
             <li><button class="button"><img src="search.png" height ="25" width="25" /></li>
@@ -98,8 +295,16 @@ body{
     </div>
     <div class="allapp">
         <div class="mytimesheet">
-            <a href =?controller=timesheet&action=myTimesheet&staff_id=STF02>My Timesheet</a>
-            <button class="mybutton" id="mybutton" >My Timesheet</button>
+            <button class="mybutton" role="button" id="mybutton" ><a>My Timesheet</a><p>Work Log</p></button>
+        </div>
+        <div class="mytimesheet">
+            <button class="mybutton2" role="button" id="mybutton" ><a>TS Approve</a><p>Approve</p></button>
+        </div>
+        <div class="mytimesheet">
+            <button class="mybutton3" role="button" id="mybutton" ><a>My Timeoff</a><p>Summary</p></button>
+        </div>
+        <div class="mytimesheet">
+            <button class="mybutton4" role="button" id="mybutton" ><a>Req. Timeoff</a><p>Create</p></button>
         </div>
     </div>
     <script>

@@ -1,6 +1,6 @@
 <style>
 body{
-    font-family : 'Segoe UI Semibold' ;
+    font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     z-index: -1;
 }
 .navbar {
@@ -12,11 +12,16 @@ body{
     background: #BED2E5;
     z-index: 0;
 }
-.navbar a{
+.navbar p{
     position: absolute;
     top : 30% ;
+    left: 5%;
     font-size : 18px;
     color : #477295 ; 
+}
+.navbar .b{
+    position: absolute;
+    top: 30%;
 }
 .navbar ul{
     list-style: none;
@@ -35,7 +40,14 @@ body{
     border : none ;
     background : transparent ; 
     cursor: pointer;
-    
+}
+.navbar .b button {
+    position: absolute;
+    left: 60;
+}
+.navbar .appli{
+    display: flex;
+    justify-content: flex-start;
 }
 .appname {
     position: fixed ;
@@ -186,9 +198,6 @@ table, th, td {
     background-color : #AEAEAE;
     text-align:center;
 } 
-.table .tb td{
-    
-}
 tbody>tr>:nth-child(3){  
     text-align:left;
 }
@@ -221,6 +230,11 @@ tr:nth-child(even) {
     transform: translateX(-50%);
     
 }
+.summan {
+    font-size: 50px;
+    font-weight: 500;
+    color : #368236;
+}
 .total {
     width : 45%;
     display : flex ;
@@ -249,7 +263,7 @@ tr:nth-child(even) {
 }
 .total .tt {
     position: relative ;
-    display: grid;
+    margin: 25 50 0 0;
 }
 .status {
     width : 35%;
@@ -261,7 +275,19 @@ tr:nth-child(even) {
 }
 .status .tt{
     position: relative ;
-    display: grid;
+    margin : 10 50 0 0;
+}
+.appr {
+    background-color : #9C2500;
+    width : 200;
+    height : 50;
+    border-radius : 30px;
+}
+.appr a {
+    font-size: 20px;
+    font-weight: 500;
+    color : #fff;
+    text-align : center ;
 }
 .submit {
     width : 20%;
@@ -287,7 +313,6 @@ tr:nth-child(even) {
     border-radius: 5px;
     position: relative;
 }
-
 .popup2 {
     background : rgba(0, 0, 0, 0.6);
     width : 100%;
@@ -316,8 +341,13 @@ tr:nth-child(even) {
     <body style="background-color:BED2E5;">
     <div class="navbar">
         <div class="appli">
-
-            <a style="margin : 0 0 0 1%">My Timesheet</a>
+            <div class="b">
+                <button class ="back"><img src="leftarrow.png" height ="25" width="25" /></button>
+            </div>
+            <div class="n">
+                <p style="margin : 0 0 0 1%">My Timesheet</p>
+            </div>
+            
         </div>
         <ul>
             <li><button class="button"><img src="search.png" height ="25" width="25" /></li>
@@ -403,20 +433,20 @@ tr:nth-child(even) {
             <div class="total">
                 <div class="tot">
                     <div class ="tt">
-                        <a>Total Mandays : </a>                
+                        <a>Total Mandays  </a>                
                     </div>
                     <div class ="summan">
-                    <?php echo $log_month_row->TOTAL_MANDAY ?>
+                        <?php echo $log_month_row->TOTAL_MANDAY ?>
                     </div>
                 </div>
             </div>
             <div class="status">
                 <div class="stat">
                     <div class ="tt">
-                        <a>Status : </a>
+                        <a>Status  </a>
                     </div>
                     <div class ="appr">
-                        <?php echo $log_month_row->STATUS_NAME ?>
+                        <a><?php echo $log_month_row->STATUS_NAME ?><a>
                     </div>
                 </div>
             </div>
@@ -498,6 +528,11 @@ tr:nth-child(even) {
         var datestring = date.getFullYear() +"-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2) ;
         DOD.value = datestring
         
+        document.querySelector(".back").addEventListener("click", () => {
+            href ='?controller=pages&action=home';
+            location.href = this.href
+        });
+
         document.querySelector(".prev").addEventListener("click", () => {
             var d = date.setMonth(date.getMonth() - 1);
             if (d = 0) date.setYear(date.getFullYear()-1) ;
