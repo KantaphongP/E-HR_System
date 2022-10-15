@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2022 at 11:27 AM
+-- Generation Time: Oct 15, 2022 at 03:06 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -40,7 +40,7 @@ CREATE TABLE `log` (
 
 INSERT INTO `log` (`TS_ID`, `STATUS_ID`, `STAFF_ID`, `TOTAL_MANDAY`) VALUES
 ('202209S02', 0, 'STF02', 1),
-('202210S02', 0, 'STF02', 33.5),
+('202210S02', 0, 'STF02', 21.5),
 ('S02', 0, 'STF02', 0);
 
 -- --------------------------------------------------------
@@ -63,21 +63,12 @@ CREATE TABLE `log_detail` (
 
 INSERT INTO `log_detail` (`TS_ID`, `LDATE`, `MANDAY`, `DETAIL`, `NOTE`) VALUES
 ('202209S02', '2022-09-30', 1, 'Get Requiment', 'Successfull'),
-('202210S02', '2022-10-01', 0.5, 'Work E-HR Project', '112'),
-('202210S02', '2022-10-02', 1, 'Work E-HR Project', 'Successfull'),
-('202210S02', '2022-10-03', 1, 'Work E-HR Project', '-'),
-('202210S02', '2022-10-04', 1, 'Work AI Project', 'Successfull'),
-('202210S02', '2022-10-05', 1, 'Work E-HR Project', '-'),
-('202210S02', '2022-10-06', 1, 'Work E-HR Project', 'Successfull'),
-('202210S02', '2022-10-07', 1, 'Work AI Project', 'Successfull'),
-('202210S02', '2022-10-08', 5, 'Work E-HR Project', '-'),
-('202210S02', '2022-10-09', 1, 'Work AI Project', '-'),
+('202210S02', '2022-10-09', 0.5, 'Work AI Project', '-'),
 ('202210S02', '2022-10-10', 1, 'Work AI Project', '-'),
 ('202210S02', '2022-10-11', 1, 'Work AI Project', '-'),
 ('202210S02', '2022-10-12', 1, 'Work AI Project', '-'),
 ('202210S02', '2022-10-13', 1, 'Work AI Project', '-'),
 ('202210S02', '2022-10-14', 1, 'Work E-HR Project', '-'),
-('202210S02', '2022-10-15', 1, 'Work E-HR Project', '-'),
 ('202210S02', '2022-10-16', 1, 'Work E-HR Project', '-'),
 ('202210S02', '2022-10-17', 1, 'Work AI Project', '-'),
 ('202210S02', '2022-10-18', 1, 'Work E-HR Project', '-'),
@@ -294,7 +285,8 @@ ALTER TABLE `log_detail`
 -- Constraints for table `sl`
 --
 ALTER TABLE `sl`
-  ADD CONSTRAINT `sl_ibfk_1` FOREIGN KEY (`STAFF_ID`) REFERENCES `staff` (`STAFF_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `sl_ibfk_1` FOREIGN KEY (`STAFF_ID`) REFERENCES `staff` (`STAFF_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `sl_ibfk_2` FOREIGN KEY (`LEAD_ID`) REFERENCES `staff` (`STAFF_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `stp`
