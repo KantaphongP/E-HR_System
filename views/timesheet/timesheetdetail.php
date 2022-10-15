@@ -561,7 +561,7 @@ tr:nth-child(even) {
             <form method="get" action="">
                 <div class="create">
                 
-                <p>Date :<input type ="date" name="DOD" id = "DOD" value = "<?php echo $log_detail->ldate; ?>"></p>
+                <p>Date :<?php echo $log_detail->ldate; ?><input type ="hidden" name="DOD" id = "DOD" value = "<?php echo $log_detail->ldate; ?>"></p>
                 <p>Timesheet Information</p>
                 <p>Timesheet ID : <?php echo $log_month_row->TS_ID?></p>
                 <p>Name : <?php echo $staff_row->S_FNAME." ".$staff_row->S_LNAME?></p>
